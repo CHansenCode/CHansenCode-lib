@@ -1,0 +1,45 @@
+//default - hidden
+.fixed {
+  position: fixed;
+  z-index: 9999;
+  left: -100vw;
+
+  height: 100vh;
+  width: 100vw;
+
+  border: thin solid green;
+  background-color: #fff;
+
+  pointer-events: none;
+
+  transition: 0.5s ease;
+  * {
+    pointer-events: none;
+    opacity: 0;
+    transition: 0.5s ease;
+  }
+}
+.open {
+  top: 0;
+  left: 0;
+  display: flex;
+  pointer-events: all;
+  * {
+    pointer-events: all;
+    opacity: 1;
+  }
+}
+.relative {
+  height: 100%;
+  width: 100%;
+}
+
+.closeButton {
+  position: absolute;
+  top: 3vw;
+  right: 3vw;
+  button {
+    font-weight: 900;
+    color: green;
+  }
+}

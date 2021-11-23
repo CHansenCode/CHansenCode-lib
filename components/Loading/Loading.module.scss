@@ -1,0 +1,113 @@
+.loadingContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+
+  //dots
+  h5 {
+    font-size: 0.6rem;
+    padding-left: 0.5rem;
+    font-weight: 300;
+    padding-top: 1rem;
+  }
+}
+
+.dotOne,
+.dotTwo,
+.dotThree,
+.dotFour {
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-direction: forwards;
+  animation-timing-function: linear; //ease-in-out, ease-out, ease-in, linear
+  animation-fill-mode: forwards; //Retains active values at last keyframe of animation, (backwards, both, none)
+  animation-delay: 0;
+}
+
+.dotOne {
+  animation-name: dotOne;
+}
+.dotTwo {
+  animation-name: dotTwo;
+}
+.dotThree {
+  animation-name: dotThree;
+}
+.dotFour {
+  animation-name: dotFour;
+}
+
+@keyframes dotOne {
+  0% {
+    opacity: 100%;
+  }
+  25% {
+    opacity: 0%;
+  }
+  50% {
+    opacity: 100%;
+  }
+  75% {
+    opacity: 100%;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
+
+@keyframes dotTwo {
+  0% {
+    opacity: 100%;
+  }
+
+  25% {
+    opacity: 100%;
+  }
+  50% {
+    opacity: 0%;
+  }
+  75% {
+    opacity: 100%;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
+
+@keyframes dotThree {
+  0% {
+    opacity: 100%;
+  }
+  25% {
+    opacity: 100%;
+  }
+  50% {
+    opacity: 100%;
+  }
+  75% {
+    opacity: 0%;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
+
+@keyframes dotFour {
+  0% {
+    opacity: 0%;
+  }
+  25% {
+    opacity: 100%;
+  }
+  50% {
+    opacity: 100%;
+  }
+  75% {
+    opacity: 100%;
+  }
+  100% {
+    opacity: 0%;
+  }
+}

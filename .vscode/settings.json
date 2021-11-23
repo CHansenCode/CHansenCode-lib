@@ -1,0 +1,49 @@
+{
+  "files.exclude": {
+    //defaults
+    "**/.svn": false,
+    "**/.hg": false,
+    "**/CVS": false,
+    "**/.DS_Store": false,
+    "**/Thumbs.db": false,
+
+    //dir
+    "**/.git": false,
+    "**/.next": false,
+    "**/node_modules": true,
+    "**/out": true,
+    "**/deprecated": false,
+
+    //env
+    "**/.env.development": false,
+    "**/.env.production": false,
+
+    //settings
+    "**/package.json": false,
+    "**/package-lock.json": false,
+
+    "**/jsconfig.json": false,
+    "**/tsconfig.json": false,
+    "**/tsconfig.tsbuildinfo": false,
+
+    "**/.prettierrc": false,
+
+    //next
+    "**/next-env.d.ts": false,
+    "**/next.config.js": false,
+    "**/vercel.json": false,
+
+    //Ease of life
+    "**/config": false,
+    "**/public": false,
+    "**/styles": false,
+
+    "**/.gitignore": false,
+    "**/README.md": false,
+
+    "**/Layout": false,
+    "**/actions": false,
+    "**/lib": false,
+    "**/reducers": false
+  }
+}

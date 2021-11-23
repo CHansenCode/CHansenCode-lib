@@ -1,0 +1,47 @@
+$header-height: 3rem;
+$footer-height: 10rem;
+
+//childs of ROOT ** html body #__next { .header, .main, .footer } **
+
+.main {
+  position: relative;
+  z-index: 1;
+
+  min-height: 100vh;
+  width: 100vw;
+
+  > section {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  // .main section {}
+  > :nth-child(1) {
+    //distance to header
+    padding-top: 5vw;
+  }
+  > :nth-last-child(1) {
+    //before footer
+    padding-bottom: 5rem;
+  }
+}
+
+//#region style ** TO BE MOVED TO INLINE
+.main {
+  background-color: rgb(240, 240, 240);
+  box-shadow: 0 0 10rem -5rem rgba(0, 0, 0, 0.7);
+  border-bottom: thin solid rgba(0, 0, 0, 0.15);
+}
+//#endregion
+
+.main {
+  padding-top: $header-height;
+  margin-bottom: $footer-height;
+}
+.header {
+  height: $header-height;
+}
+.footer {
+  // Doesn't scale - ( use strict composition rules & specific mobile @rules )
+  height: $footer-height;
+}
