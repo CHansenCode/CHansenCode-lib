@@ -1,6 +1,9 @@
 # Introduction
 
-Component library for ChansenCode environment
+Component development environment.
+
+View built on 'next.js',
+exports handled with 'rollup.js'
 
 <br>
 
@@ -12,52 +15,64 @@ Component library for ChansenCode environment
 npm install
 ```
 
+## Run
+
+---
+
+```javascript
+npm run dev:        Starts dev env on 'localhost:3500'
+npm run build:      Builds next static site to folder './out'
+npm run build-lib:  Rollup compiles './components' to './dist'
+```
+
 <br>
+
+## Motivation & Manifest
+
+---
+
+This program is built by a junior front-end web dev for consumption in various applications ranging from cms to web based interfaces. It comprises both view, presentation, simple & advanced components. This library will be built into .tsx with time but is for now written in .js format.
+
+<br>
+
+### 'Component design' - manifest
+
+All components shall:
+
+- K I S S
+- Be able to render monochromatically following currentColor convention
+- Documented clearly with example on lib.chansen.design
 
 ## List of components
 
-## Next
+---
+
+| **name**  | **type**     |     |
+| --------- | ------------ | --- |
+| Button    | presentation |     |
+| Hamburger | presentation |     |
+| Logo      | presentation |     |
+
+Explicit details and preview examples can be found on : ***https://lib.chansen.design***
+
+<br>
+
+## Folder Structure
 
 ---
 
 <br>
 
-```javascript
-file: '~/pages/app.js'
-
-<div id="__next">
-  <Layout>
-    <Component {...pageProps} />
-  </Layout>
-</div>
-```
+### Exporting Components:
 
 ```javascript
-file: '~/Layout/Layout.js'
+//Target for rollup
 
-<Head />
-
-<Header></Header>
-{children}
-<Footer></Footer>
-```
-
-## Component structure
-
----
-
-_All components are exported from index.js_
-
-```javascript
 file: '~/components/index.js';
 
 export * from './Foo';
 export * from './Bar';
-//...for all components
 ```
-
-<br>
-_Component_
 
 ```javascript
 file: '~/components/Foo/index.js';
@@ -79,10 +94,14 @@ export const Foo = () => {
 
 <br>
 
-_To import components in Pages/compositions_
+### Importing Components
 
 ```javascript
 import { Foo, Bar } from '~/components';
+
+//or
+
+import { Foo, Bar } from 'chansencode-lib';
 ```
 
 <br>
