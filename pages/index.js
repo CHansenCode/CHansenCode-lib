@@ -70,7 +70,7 @@ export default function Home({ colors }) {
         <ComponentView
           data={{
             title: 'Textarea',
-            descr: 'Minimal loading indicator, scales with "rem"',
+            descr: 'Standard Textarea with css inline, 100% width.',
             properties: [
               { key: 'label', type: 'string' },
               { key: 'placeholder', type: 'string' },

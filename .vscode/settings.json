@@ -6,7 +6,7 @@
     "**/node_modules": true,
     //dists
     "**/out": true,
-    "**/dist": true,
+    "**/dist": false,
 
     //settings
     "**/.gitignore": false,
