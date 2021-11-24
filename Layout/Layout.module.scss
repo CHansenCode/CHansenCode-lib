@@ -1,7 +1,5 @@
 $header-height: 3rem;
-$footer-height: 10rem;
-
-//childs of ROOT ** html body #__next { .header, .main, .footer } **
+$footer-height: 0rem;
 
 .main {
   position: relative;
@@ -22,11 +20,10 @@ $footer-height: 10rem;
   }
   > :nth-last-child(1) {
     //before footer
-    padding-bottom: 5rem;
+    padding-bottom: 5vw;
   }
 }
 
-//#region style ** TO BE MOVED TO INLINE
 .main {
   background-color: rgb(240, 240, 240);
   box-shadow: 0 0 10rem -5rem rgba(0, 0, 0, 0.7);
@@ -42,6 +39,5 @@ $footer-height: 10rem;
   height: $header-height;
 }
 .footer {
-  // Doesn't scale - ( use strict composition rules & specific mobile @rules )
   height: $footer-height;
 }

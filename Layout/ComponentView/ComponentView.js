@@ -1,17 +1,17 @@
 export const ComponentView = ({ data, children }) => {
   return (
     <Frame>
-      <View>{children}</View>
-
       <Aside>
-        <div>
+        <header>
           <Title title={data.title} />
           <Description description={data.descr} />
-        </div>
+        </header>
         <div>
           <Properties data={data.properties} />
         </div>
       </Aside>
+
+      <View>{children}</View>
     </Frame>
   );
 };
@@ -25,8 +25,8 @@ const Frame = ({ children }) => {
         {`
           .frame {
             width: 100%;
-            display: flex;
-            flex-direction: column;
+            display: grid;
+            grid-template: 'aside view' 1fr / 20rem 1fr;
             box-shadow: 0 0 5rem -3rem currentColor;
             border: thin solid rgba(0, 0, 0, 0.1);
           }
@@ -35,20 +35,54 @@ const Frame = ({ children }) => {
     </>
   );
 };
+
 const Aside = ({ children }) => {
   return (
     <>
-      <aside className="aside">{children}</aside>
+      <aside className="ch_aside">{children}</aside>
 
       <style jsx>
         {`
-          .aside {
-            display: grid;
-            grid-template: 'titleDescript properties' 1fr / 300px 1fr;
-            grid-gap: 3vw;
-            border: thin solid lightgray;
-            box-shadow: 0 0 3rem -2rem currentColor;
+          .ch_aside {
             padding: 1rem;
+            display: grid;
+            grid-template:
+              'titleDescript' auto
+              'props' 1fr / 1fr;
+            padding: 1rem;
+            box-shadow: 0 0 3rem -2rem currentColor;
+            border-right: thin solid rgba(255, 255, 255, 0.1);
+          }
+        `}
+      </style>
+    </>
+  );
+};
+const Title = ({ title }) => {
+  return (
+    <>
+      <h4 className="sc ch_comp_aside">{title}</h4>
+
+      <style jsx>
+        {`
+          .ch_comp_aside {
+          }
+        `}
+      </style>
+    </>
+  );
+};
+const Description = ({ description }) => {
+  return (
+    <>
+      <p className="ch_descr">{description}</p>
+
+      <style jsx>
+        {`
+          .ch_descr {
+            font-size: 0.85rem;
+            font-style: italic;
+            margin-bottom: 1rem;
           }
         `}
       </style>
@@ -85,34 +119,7 @@ const Properties = ({ data }) => {
     </>
   );
 };
-const Title = ({ title }) => {
-  return (
-    <>
-      <h4>{title}</h4>
 
-      <style jsx>
-        {`
-          .aside {
-          }
-        `}
-      </style>
-    </>
-  );
-};
-const Description = ({ description }) => {
-  return (
-    <>
-      <p>{description}</p>
-
-      <style jsx>
-        {`
-          .aside {
-          }
-        `}
-      </style>
-    </>
-  );
-};
 const View = ({ children }) => {
   return (
     <>

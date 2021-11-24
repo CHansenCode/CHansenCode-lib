@@ -27,14 +27,14 @@ const Header = ({ className, colors, setColors }) => {
   return (
     <>
       <header className={`${className} ${css.header} pc`}>
-        <nav id="nav" className="pc pcbg">
+        <nav id="nav" className="pc">
           <div
             style={{
-              padding: '0 0 0 1rem',
+              padding: '0 1rem',
               whiteSpace: 'nowrap',
             }}
           >
-            {meta.projectName} - Component library
+            {meta.projectName}
           </div>
 
           {/* <Dropdown>

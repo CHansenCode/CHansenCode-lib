@@ -5,12 +5,16 @@
   height: 100%;
   width: 100%;
 
+  //string
+  h3 {
+    font-weight: 401;
+  }
+
   //dots
   h5 {
     font-size: 0.6rem;
     padding-left: 0.5rem;
-    font-weight: 300;
-    padding-top: 1rem;
+    font-weight: 601;
   }
 }
 
@@ -18,7 +22,7 @@
 .dotTwo,
 .dotThree,
 .dotFour {
-  animation-duration: 1s;
+  animation-duration: 1.5s;
   animation-iteration-count: infinite;
   animation-direction: forwards;
   animation-timing-function: linear; //ease-in-out, ease-out, ease-in, linear

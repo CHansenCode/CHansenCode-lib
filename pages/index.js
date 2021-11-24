@@ -1,15 +1,15 @@
 import { useState, useEffect } from 'react';
 
-import { Button, Form, Item, List } from 'chansencode-lib';
 import { ComponentView } from '@/Layout/ComponentView/ComponentView';
 
 //domain
 import { Section } from '@/components';
 //components
-import { Hamburger, Logo, Dropdown } from '@/components';
+import { Hamburger, Logo, Loading, Textarea } from '@/components';
 
 export default function Home({ colors }) {
   const [ternary, setTernary] = useState(false);
+
   return (
     <>
       <div className="spacer" />
@@ -38,13 +38,13 @@ export default function Home({ colors }) {
         <ComponentView
           data={{
             title: 'Logo',
-            descr: 'ChansenDesign svg-logo',
+            descr: `CHansenDesign logo. Only accepts strings for colors`,
             properties: [
               { key: 'height', type: 'string' },
               { key: 'width', type: 'string' },
               {
                 key: 'colors',
-                type: '{primary: string (defaults to "teal"), secondary: string (defaults to "coral")}',
+                type: '{primary, secondary}',
               },
             ],
           }}
@@ -55,17 +55,41 @@ export default function Home({ colors }) {
       <Section>
         <ComponentView
           data={{
-            title: 'Dropdown',
-            descr: 'Dropdown menu button',
+            title: 'Loading',
+            descr: 'Minimal loading indicator, scales with "rem"',
             properties: [
-              { key: 'title', type: 'string' },
-              { key: 'children', type: 'components' },
+              { key: 'text', type: 'string' },
+              { key: 'fontSize', type: 'string' },
             ],
           }}
         >
-          <Dropdown>
-            <p>example1</p>
-          </Dropdown>
+          <Loading />
+        </ComponentView>
+      </Section>
+      <Section>
+        <ComponentView
+          data={{
+            title: 'Textarea',
+            descr: 'Minimal loading indicator, scales with "rem"',
+            properties: [
+              { key: 'label', type: 'string' },
+              { key: 'placeholder', type: 'string' },
+              { key: 'info', type: 'string' },
+              { key: 'name', type: 'string' },
+              { key: 'id', type: 'string' },
+              { key: 'className', type: 'string' },
+              { key: 'style', type: '{object}' },
+              { key: 'rows', type: 'string' },
+              { key: 'value', type: 'string' },
+              { key: 'onChange', type: 'string' },
+            ],
+          }}
+        >
+          <Textarea
+            label="username label"
+            placeholder="placeholder"
+            info="min. 2 characters. No special chars "
+          />
         </ComponentView>
       </Section>
     </>

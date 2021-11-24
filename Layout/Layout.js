@@ -35,7 +35,8 @@ const Layout = ({ colors, setColors, children }) => {
       >
         {children}
       </main>
-      <Footer className={css.footer} />
+
+      {/* <Footer className={css.footer} /> */}
 
       <style jsx global>
         {`
