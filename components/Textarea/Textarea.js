@@ -17,15 +17,16 @@ export const Textarea = ({
     <>
       <div className="ch_lib_textarea_wrapper">
         <header>
-          {label && (
-            <label>
-              {required && <span className="sc">* </span>}
-              {label} :
-            </label>
+          <label>
+            {required && <span className="sc">* </span>}
+            {label && `${label} :`}
+          </label>
+
+          {info && (
+            <h6>
+              i<span>{info}</span>
+            </h6>
           )}
-          <h6>
-            i<span>{info}</span>
-          </h6>
         </header>
 
         <textarea

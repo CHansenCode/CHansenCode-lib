@@ -26,7 +26,7 @@ export default function Home({ colors }) {
             title: 'Hamburger',
             descr: 'Hamburger component',
             properties: [
-              { key: 'ternary', type: 'ternary' },
+              { key: 'ternary', type: 'boolean' },
               { key: 'size', type: 'string', descr: 'inline height & width' },
               { key: 'id', type: 'string' },
               { key: 'className', type: 'string' },

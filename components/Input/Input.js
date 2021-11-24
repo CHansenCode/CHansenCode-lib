@@ -16,11 +16,16 @@ export const Input = ({
     <>
       <div className="ch_lib_input_wrapper">
         <header>
-          {required && <span className="sc">* </span>}
-          {label && <label>{label} :</label>}
-          <h6>
-            i<span>{info}</span>
-          </h6>
+          <label>
+            {required && <span className="sc">* </span>}
+            {label && `${label} :`}
+          </label>
+
+          {info && (
+            <h6>
+              i<span>{info}</span>
+            </h6>
+          )}
         </header>
 
         <input
