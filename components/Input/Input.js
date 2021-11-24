@@ -1,107 +1,105 @@
-import React, { useState } from 'react';
-
-import css from './Input.module.scss';
+import React from 'react';
 
 export const Input = ({
   label,
   placeholder,
-  valid,
-  required,
-  infoOnHover,
-  type,
+  info,
+  name,
   id,
   className,
+  style,
   value,
   onChange,
+  required,
 }) => {
-  const [isFocused, setIsFocused] = useState(false);
-  function onFocus() {
-    setIsFocused(true);
-  }
-  function onBlur() {
-    setIsFocused(false);
-  }
   return (
-    <div className={`${css.div} ${className}`}>
-      <header className={css.header}>
-        {label && <h5 className={`${css.label}`}>{label} :</h5>}
-        {required && <h6 className={`${css.required} secondary`}>* req.</h6>}
-        {infoOnHover && (
-          <IconOnHoverInfo text={infoOnHover} forceHover={isFocused} />
-        )}
-      </header>
+    <>
+      <div className="ch_lib_input_wrapper">
+        <header>
+          {required && <span className="sc">* </span>}
+          {label && <label>{label} :</label>}
+          <h6>
+            i<span>{info}</span>
+          </h6>
+        </header>
 
-      <div className={`${css.inputWrapper} ${valid && css.valid}`}>
         <input
-          id={id}
-          type={type}
           placeholder={placeholder}
-          onFocus={() => onFocus()}
-          onBlur={() => onBlur()}
+          name={name}
+          id={id}
+          className={`ch_lib_input ${className}`}
+          style={style}
           value={value}
           onChange={onChange}
         />
-        {valid && <div className={css.checkmark}>✓</div>}
       </div>
-    </div>
+
+      {styleInject}
+    </>
   );
 };
 
-const IconOnHoverInfo = ({ text, forceHover }) => {
-  const [hover, setHover] = useState(false);
+const styleInject = (
+  <style jsx>
+    {`
+      .ch_lib_input_wrapper {
+        width: 100%;
+      }
+      .ch_lib_input_wrapper header {
+        display: flex;
+        justify-content: space-between;
+        padding: 0 0.25rem;
+      }
+      .ch_lib_input_wrapper h6 {
+        position: relative;
+        font-weight: 401;
+        padding-top: 0.4rem;
+        height: 1.25rem;
+        width: 1.25rem;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: thin solid currentColor;
+        white-space: nowrap;
+      }
 
-  function onMouseEnter() {
-    setHover(true);
-  }
-  function onMouseLeave() {
-    setHover(false);
-  }
+      .ch_lib_input_wrapper h6:hover {
+        cursor: help;
+      }
+      .ch_lib_input_wrapper h6 span {
+        position: absolute;
+        opacity: 0;
+        right: calc(100% + 0.5rem);
+        top: 0;
+        transition: 0.3s ease;
+      }
 
-  const style = {
-    wrapper: {
-      position: 'relative',
-      height: '1rem',
-      width: '1rem',
-
-      textAlign: 'right',
-
-      display: 'flex',
-      justifyContent: 'flex-end',
-
-      pointer: 'help',
-    },
-
-    icon: {
-      height: '100%',
-      width: '100%',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      borderRadius: '50%',
-      border: 'thin solid currentColor',
-    },
-
-    onHover: {
-      position: 'absolute',
-      top: 0,
-      right: '1rem',
-      marginRight: '1rem',
-      background: '#fff',
-      whiteSpace: 'nowrap',
-    },
-  };
-
-  return (
-    <div
-      style={style.wrapper}
-      onMouseEnter={onMouseEnter}
-      onMouseLeave={onMouseLeave}
-    >
-      <div style={style.icon}>
-        <h6>i</h6>
-      </div>
-
-      {(forceHover || hover) && <h5 style={style.onHover}>{text}</h5>}
-    </div>
-  );
-};
+      .ch_lib_input_wrapper h6:hover span {
+        opacity: 1;
+      }
+      .ch_lib_input_wrapper label {
+        font-style: italic;
+      }
+      .ch_lib_input {
+        font-size: 1rem;
+        width: 100%;
+        padding: 0.25rem 0.5rem;
+        color: currentColor;
+        background: transparent;
+        border: thin solid currentColor;
+        resize: vertical;
+        transition: 0.05s ease;
+      }
+      .ch_lib_input:hover {
+        outline: thin solid currentColor;
+      }
+      .ch_lib_input:focus {
+        outline: thin solid currentColor;
+      }
+      .ch_lib_input::placeholder {
+        font-size: 1rem;
+      }
+    `}
+  </style>
+);

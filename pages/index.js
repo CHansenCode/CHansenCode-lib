@@ -5,7 +5,14 @@ import { ComponentView } from '@/Layout/ComponentView/ComponentView';
 //domain
 import { Section } from '@/components';
 //components
-import { Hamburger, Logo, Loading, Textarea, Button } from '@/components';
+import {
+  Hamburger,
+  Logo,
+  Loading,
+  Textarea,
+  Input,
+  Button,
+} from '@/components';
 
 export default function Home({ colors }) {
   const [ternary, setTernary] = useState(false);
@@ -82,10 +89,38 @@ export default function Home({ colors }) {
               { key: 'rows', type: 'string' },
               { key: 'value', type: 'string' },
               { key: 'onChange', type: 'string' },
+              { key: 'required', type: 'boolean' },
             ],
           }}
         >
           <Textarea
+            label="username label"
+            placeholder="placeholder"
+            info="min. 2 characters. No special chars "
+            required
+          />
+        </ComponentView>
+      </Section>
+      <Section>
+        <ComponentView
+          data={{
+            title: 'Input',
+            descr: 'Standard Textarea with css inline, 100% width.',
+            properties: [
+              { key: 'label', type: 'string' },
+              { key: 'placeholder', type: 'string' },
+              { key: 'info', type: 'string' },
+              { key: 'name', type: 'string' },
+              { key: 'id', type: 'string' },
+              { key: 'className', type: 'string' },
+              { key: 'style', type: '{object}' },
+              { key: 'value', type: 'string' },
+              { key: 'onChange', type: 'string' },
+              { key: 'required', type: 'boolean' },
+            ],
+          }}
+        >
+          <Input
             label="username label"
             placeholder="placeholder"
             info="min. 2 characters. No special chars "

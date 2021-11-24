@@ -62,7 +62,7 @@ const Header = ({ className, colors, setColors }) => {
               onChangeComplete={handleBgChange}
             />
             <Button
-              text={colors.darkmode ? 'darkmode' : 'lightmode'}
+              children={colors.darkmode ? 'darkmode' : 'lightmode'}
               margin="0 1rem"
               onClick={() =>
                 setColors({ ...colors, darkmode: !colors.darkmode })

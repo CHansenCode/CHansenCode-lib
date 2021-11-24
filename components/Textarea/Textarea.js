@@ -11,12 +11,18 @@ export const Textarea = ({
   rows,
   value,
   onChange,
+  required,
 }) => {
   return (
     <>
       <div className="ch_lib_textarea_wrapper">
         <header>
-          {label && <label>{label} :</label>}
+          {label && (
+            <label>
+              {required && <span className="sc">* </span>}
+              {label} :
+            </label>
+          )}
           <h6>
             i<span>{info}</span>
           </h6>
