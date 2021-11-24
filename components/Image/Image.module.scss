@@ -1,0 +1,38 @@
+.wrapper {
+  position: relative;
+  border: thin solid;
+
+  margin: 0;
+  padding: 0;
+
+  overflow: hidden;
+
+  transition: 0.3s ease;
+  * {
+    transition: 0.3s ease;
+  }
+}
+
+.hover {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.4);
+  top: 0;
+  left: 0;
+
+  opacity: 0;
+}
+
+.wrapper:hover {
+  .hover {
+    opacity: 1;
+  }
+}
+
+.img {
+  position: absolute;
+  min-width: 100%;
+  padding: 0;
+  margin: 0;
+}

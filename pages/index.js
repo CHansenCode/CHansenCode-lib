@@ -9,9 +9,13 @@ import {
   Hamburger,
   Logo,
   Loading,
-  Textarea,
+  //
+  Form,
   Input,
+  Textarea,
+  //
   Button,
+  Image,
 } from '@/components';
 
 export default function Home({ colors }) {
@@ -86,7 +90,7 @@ export default function Home({ colors }) {
               { key: 'id', type: 'string' },
               { key: 'className', type: 'string' },
               { key: 'style', type: '{object}' },
-              { key: 'rows', type: 'string' },
+              { key: 'rows', type: 'Number' },
               { key: 'value', type: 'string' },
               { key: 'onChange', type: 'string' },
               { key: 'required', type: 'boolean' },
@@ -154,11 +158,52 @@ export default function Home({ colors }) {
           }}
         >
           <Button
-            fontSize="2rem"
-            padding="2rem 4rem"
+            fontSize="1rem"
             children={ternary ? 'example text' : 'text example'}
             onClick={() => setTernary(!ternary)}
           />
+        </ComponentView>
+      </Section>
+      <Section>
+        <ComponentView
+          data={{
+            title: 'Form',
+            descr:
+              'Form Container, has e.preventDefault() as onSubmit unless onSubmit prop is passed',
+            properties: [
+              { key: 'id', type: 'string' },
+              { key: 'className', type: 'string' },
+              { key: 'style', type: 'string' },
+
+              { key: 'width', type: 'string' },
+
+              { key: 'margin', type: 'string' },
+              { key: 'padding', type: 'string' },
+              { key: 'border', type: 'string' },
+
+              { key: 'bg', type: 'string' },
+              { key: 'children', type: 'string/component' },
+            ],
+          }}
+        >
+          <Form>
+            <h4 className="sc">Form is only a wrapper</h4>
+            <Input />
+            <Textarea />
+            <Button width="100%" children="send" />
+          </Form>
+        </ComponentView>
+      </Section>
+      <Section>
+        <ComponentView
+          data={{
+            title: 'Image',
+            descr:
+              'Form Container, has e.preventDefault() as onSubmit unless onSubmit prop is passed',
+            properties: [{ key: 'id', type: 'string' }],
+          }}
+        >
+          <Image />
         </ComponentView>
       </Section>
     </>

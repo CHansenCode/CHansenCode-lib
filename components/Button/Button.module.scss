@@ -1,0 +1,26 @@
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin: 0;
+  padding: 0.5rem 1rem;
+
+  color: currentColor;
+  background: transparent;
+  border: thin solid currentColor;
+  outline: thin solid transparent;
+
+  box-shadow: inset 0 0 0 0 currentColor, 0 0 0 0 currentColor;
+
+  transition: 0.3s ease;
+}
+
+.button:hover {
+  cursor: pointer;
+  box-shadow: inset 0 0 2rem -1.2rem, 0 0 2rem -1.5rem currentColor;
+}
+
+.button:focus {
+  box-shadow: inset 0 0 1rem -0.7rem, 0 0 1rem -0.5rem currentColor;
+}

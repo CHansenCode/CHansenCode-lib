@@ -35,7 +35,6 @@ const Frame = ({ children }) => {
     </>
   );
 };
-
 const Aside = ({ children }) => {
   return (
     <>
@@ -119,7 +118,6 @@ const Properties = ({ data }) => {
     </>
   );
 };
-
 const View = ({ children }) => {
   return (
     <>
@@ -131,6 +129,7 @@ const View = ({ children }) => {
             width: 100%;
             padding: 2vw 0;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
           }

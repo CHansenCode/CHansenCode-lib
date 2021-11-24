@@ -2,27 +2,34 @@ import React from 'react';
 
 import css from './Form.module.scss';
 
-export const Form = ({ title, children, color, onSubmit }) => {
+export const Form = ({
+  id,
+  className,
+  style,
+
+  margin,
+  padding,
+
+  border,
+  bg,
+
+  children,
+  onSubmit,
+}) => {
   const propStyle = {
-    color: color && color.primary,
+    background: bg,
+    padding: padding,
+    margin: margin,
+    border: border,
   };
   return (
     <form
-      onSubmit={e => e.preventDefault()}
-      style={{ ...inline, ...propStyle }}
-      className={css.form}
+      id={id}
+      onSubmit={onSubmit ? onSubmit : e => e.preventDefault()}
+      style={{ ...propStyle, ...style }}
+      className={`${css.form} ${className}`}
     >
-      <h4 style={{ color: color && color.secondary }}>{title}</h4>
       {children}
     </form>
   );
-};
-
-const inline = {
-  width: '640px',
-  display: 'flex',
-  flexDirection: 'column',
-  background: 'rgba(255,255,255,0.3)',
-  padding: '1rem',
-  border: 'thin solid',
 };
