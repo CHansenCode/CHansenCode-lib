@@ -5,7 +5,7 @@ import { ComponentView } from '@/Layout/ComponentView/ComponentView';
 //domain
 import { Section } from '@/components';
 //components
-import { Hamburger, Logo, Loading, Textarea } from '@/components';
+import { Hamburger, Logo, Loading, Textarea, Button } from '@/components';
 
 export default function Home({ colors }) {
   const [ternary, setTernary] = useState(false);
@@ -89,6 +89,40 @@ export default function Home({ colors }) {
             label="username label"
             placeholder="placeholder"
             info="min. 2 characters. No special chars "
+          />
+        </ComponentView>
+      </Section>
+      <Section>
+        <ComponentView
+          data={{
+            title: 'Button',
+            descr:
+              'Standard Button monochromatic, noClick prop toggles pointer-events',
+            properties: [
+              { key: 'id', type: 'string' },
+              { key: 'className', type: 'string' },
+              { key: 'style', type: 'string' },
+              { key: 'onClick', type: 'function' },
+              { key: '', type: '' },
+              { key: 'size', type: 'string' },
+              { key: 'fontSize', type: 'string' },
+              { key: 'margin', type: 'string' },
+              { key: 'padding', type: 'string' },
+              { key: 'color', type: 'string' },
+              { key: 'border', type: 'string' },
+              { key: 'borderRadius', type: 'string' },
+              { key: 'bg', type: 'string' },
+              { key: 'boxShadow', type: 'string' },
+
+              { key: 'noClick', type: 'boolean' },
+            ],
+          }}
+        >
+          <Button
+            fontSize="2rem"
+            padding="2rem 4rem"
+            children={ternary ? 'example text' : 'text example'}
+            onClick={() => setTernary(!ternary)}
           />
         </ComponentView>
       </Section>
