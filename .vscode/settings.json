@@ -23,6 +23,6 @@
 
     //dirs
     "**/config": true,
-    "**/styles": true
+    "**/styles": false
   }
 }

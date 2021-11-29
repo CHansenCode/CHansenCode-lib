@@ -36,3 +36,15 @@ html body #__next {
     font-size: 10px;
   }
 }
+
+.storyView {
+  margin: 0 auto;
+  margin-top: 3vw;
+
+  border: thin solid;
+  max-width: 1200px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

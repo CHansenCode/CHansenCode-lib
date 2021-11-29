@@ -21,6 +21,10 @@ export const Button = ({
 
   onClick,
   noClick,
+  onMouseEnter,
+  onMouseLeave,
+  onFocus,
+  onBlur,
 
   children,
 }) => {
@@ -48,6 +52,10 @@ export const Button = ({
         onClick={onClick}
         className={`${css.button} ${className}`}
         style={{ ...propStyle, ...style }}
+        onMouseEnter={onMouseEnter}
+        onMouseLeave={onMouseLeave}
+        onFocus={onFocus}
+        onBlur={onBlur}
       >
         {children ? children : <b>childless</b>}
       </button>
