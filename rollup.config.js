@@ -2,9 +2,6 @@ import babel from 'rollup-plugin-babel';
 import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import external from 'rollup-plugin-peer-deps-external';
-
-import react, { reactDOM } from 'react';
-
 import postcss from 'rollup-plugin-postcss';
 
 export default [
@@ -21,6 +18,7 @@ export default [
         exports: 'named',
       },
     ],
+    external: ['react'],
     plugins: [
       postcss({
         plugins: [],
@@ -35,7 +33,7 @@ export default [
       commonjs({
         include: 'node_modules/**',
         namedExports: {
-          react: Object.keys(react),
+          'node_modules/react/index.js': ['useState', 'useRef', 'useEffect'],
         },
       }),
     ],
