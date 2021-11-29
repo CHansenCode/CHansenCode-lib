@@ -1,45 +1,47 @@
 //default - hidden
 .fixed {
   position: fixed;
-  z-index: 9999;
-  left: -100vw;
+  top: 0;
+  left: 0;
+  z-index: 1000;
 
   height: 100vh;
   width: 100vw;
 
-  border: thin solid green;
-  background-color: #fff;
+  opacity: 0;
 
+  box-shadow: inset 0 0 10rem -5rem black;
   pointer-events: none;
-
   transition: 0.5s ease;
   * {
     pointer-events: none;
-    opacity: 0;
     transition: 0.5s ease;
   }
 }
 .open {
+  opacity: 1;
   top: 0;
   left: 0;
-  display: flex;
+
   pointer-events: all;
+
   * {
     pointer-events: all;
     opacity: 1;
   }
 }
 .relative {
+  position: relative;
   height: 100%;
   width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .closeButton {
   position: absolute;
   top: 3vw;
   right: 3vw;
-  button {
-    font-weight: 900;
-    color: green;
-  }
 }

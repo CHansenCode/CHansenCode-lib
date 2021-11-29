@@ -5,17 +5,14 @@ import { Button } from '../';
 import css from './Modal.module.scss';
 
 export const Modal = ({
-  //propStyling
   center,
   column,
+  ternary,
 
-  //html defaults
   id,
   className,
   children,
 
-  // open - close
-  ternary,
   onClose,
 }) => {
   const propStyle = {
@@ -31,15 +28,13 @@ export const Modal = ({
     <>
       <div
         id={id}
-        className={`${css.fixed} ${ternary ? css.open : null} ${className}`}
+        className={`pcbg ${css.fixed} ${ternary && css.open} ${className}`}
       >
-        <div className={css.relative} style={{ ...propStyle.relative }}>
+        <div className={css.relative}>
           {children}
-          hello sadjka sj
-          <div>onClose</div>
-          <div className={css.closeButton}>
-            <Button onClick={onClose}>X</Button>
-          </div>
+          <Button className={css.closeButton} onClick={onClose}>
+            X
+          </Button>
         </div>
       </div>
     </>

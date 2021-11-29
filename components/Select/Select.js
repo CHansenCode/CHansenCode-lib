@@ -5,8 +5,10 @@ import css from './Select.module.scss';
 export const Select = ({ arr }) => {
   return (
     <>
-      <label></label>
-      <div></div>
+      <div>
+        <label></label>
+        <div></div>
+      </div>
     </>
   );
 };

@@ -17,7 +17,7 @@
     "**/.eslintrc.json": true,
     "**/tsconfig.json": true,
     "**/next.config.js": true,
-    "**/rollup.config.js": true,
+    "**/rollup.config.js": false,
     "**/.prettierrc": true,
     "**/README.md": true,
 

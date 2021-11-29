@@ -1,0 +1,31 @@
+.wrapper {
+  position: relative;
+  min-height: 20rem;
+  height: 500px;
+  width: 640px;
+  border: thin solid;
+  box-shadow: 0 0 3rem -2rem currentColor;
+}
+
+$height: 10rem;
+
+.circle {
+  position: absolute;
+  top: 5rem;
+
+  height: $height;
+  width: $height;
+
+  background: rgba(0, 150, 150, 0.5);
+  border-radius: 50%;
+}
+
+.abs {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  height: 100%;
+  width: 100%;
+  border: thin solid;
+}

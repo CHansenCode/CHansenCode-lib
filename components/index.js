@@ -1,5 +1,8 @@
-//ReWork to module.scss again
+//check & ready, (module.scss version, no 'useState etc')
 export * from './Button';
+
+export * from './List';
+export * from './Item';
 
 export * from './Loading';
 export * from './Hamburger';
@@ -7,6 +10,10 @@ export * from './Hamburger';
 export * from './Form';
 export * from './Input';
 export * from './Textarea';
+export * from './Select';
+export * from './InputField';
+
+export * from './LayeredImage';
 
 //Missing safari compability (svg props)
 export * from './Logo';
@@ -15,8 +22,7 @@ export * from './Logo';
 export * from './Dropdown';
 export * from './IconOnHoverInfo';
 export * from './Image';
-export * from './Item';
-export * from './List';
+
 export * from './Modal';
 export * from './NextLink';
 export * from './Section';

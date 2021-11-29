@@ -37,20 +37,7 @@ const Header = ({ className, colors, setColors }) => {
             {meta.projectName}
           </div>
 
-          {/* <Dropdown>
-            {pageSetup.map(page => (
-              <NextLink key={page.name} href={page.pageRoute}>
-                {page.name}
-              </NextLink>
-            ))}
-          </Dropdown> */}
-
           <div className={css.colorPickers}>
-            <ColorPicker
-              colorName="Primary"
-              color={colors.darkmode ? colors.dark.pc : colors.light.pc}
-              onChangeComplete={handlePrimaryChange}
-            />
             <ColorPicker
               colorName="Secondary"
               color={colors.darkmode ? colors.dark.sc : colors.light.sc}
@@ -64,6 +51,8 @@ const Header = ({ className, colors, setColors }) => {
             <Button
               children={colors.darkmode ? 'darkmode' : 'lightmode'}
               margin="0 1rem"
+              borderRadius="0.75rem"
+              padding="0.25rem 0.5rem"
               onClick={() =>
                 setColors({ ...colors, darkmode: !colors.darkmode })
               }

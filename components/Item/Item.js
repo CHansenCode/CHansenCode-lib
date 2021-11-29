@@ -2,7 +2,7 @@ import React from 'react';
 
 import css from './Item.module.scss';
 
-export const Item = ({ text, id, className, style, children, onClick }) => {
+export const Item = ({ id, className, style, children, onClick }) => {
   return (
     <li
       style={{ ...style }}
@@ -10,7 +10,6 @@ export const Item = ({ text, id, className, style, children, onClick }) => {
       className={`${css.item} ${className}`}
       onClick={onClick}
     >
-      {text}
       {children}
     </li>
   );

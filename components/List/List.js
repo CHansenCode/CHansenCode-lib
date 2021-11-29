@@ -2,23 +2,14 @@ import React from 'react';
 
 import css from './List.module.scss';
 
-export const List = ({ margin, padding, className, children, horizontal }) => {
+export const List = ({ align, id, className, style, children }) => {
   const propStyle = {
-    display: horizontal && 'flex',
-    margin: margin,
-    padding: padding,
+    alignItems:
+      align === 'start' ? 'flex-start' : align === 'end' ? 'flex-end' : '',
   };
-
   return (
-    <ul
-      className={`${css.list} ${className}`}
-      style={({ ...inline }, { ...propStyle })}
-    >
+    <ul id={id} className={`${css.ul} ${className}`} style={{ ...style }}>
       {children}
     </ul>
   );
-};
-
-const inline = {
-  width: 'min-content',
 };
