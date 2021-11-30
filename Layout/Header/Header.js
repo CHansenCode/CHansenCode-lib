@@ -1,11 +1,12 @@
 import { useState } from 'react';
 import { ChromePicker } from 'react-color';
 
-import { Dropdown, NextLink, Button } from '@/components';
+import { Dropdown, NextLink, Button, Item, List } from '@/components';
+import { Router, router } from 'next/router';
 
 import css from './Header.module.scss';
 
-import { pageSetup, meta } from '@/config';
+import { navRoutes, meta } from '@/config';
 
 const Header = ({ className, colors, setColors }) => {
   function handlePrimaryChange(color, e) {
@@ -28,14 +29,23 @@ const Header = ({ className, colors, setColors }) => {
     <>
       <header className={`${className} ${css.header} pc`}>
         <nav id="nav" className="pc">
-          <div
+          <h4
+            className="sc"
             style={{
               padding: '0 1rem',
               whiteSpace: 'nowrap',
             }}
           >
             {meta.projectName}
-          </div>
+          </h4>
+
+          <List>
+            {navRoutes.map(route => (
+              <NextLink key={route.title} href={route.route}>
+                <Item>{route.title}</Item>
+              </NextLink>
+            ))}
+          </List>
 
           <div className={css.colorPickers}>
             <ColorPicker

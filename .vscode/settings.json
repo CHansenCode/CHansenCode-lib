@@ -22,7 +22,7 @@
     "**/README.md": true,
 
     //dirs
-    "**/config": true,
+    "**/config": false,
     "**/styles": false
   }
 }

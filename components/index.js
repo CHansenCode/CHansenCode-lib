@@ -15,6 +15,7 @@ export * from './InputField';
 
 export * from './LayeredImage';
 export * from './Foldable';
+export * from './Canvas';
 
 //Missing safari compability (svg props)
 export * from './Logo';

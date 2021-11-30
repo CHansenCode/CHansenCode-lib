@@ -20,6 +20,10 @@ export const Input = ({
 
   //funcs
   onChange,
+  onBlur,
+  onFocus,
+  onMouseEnter,
+  onMouseLeave,
 }) => {
   return (
     <>
@@ -44,6 +48,10 @@ export const Input = ({
           className={`${css.input} ${className}`}
           style={style}
           value={value}
+          onBlur={onBlur}
+          onFocus={onFocus}
+          onMouseEnter={onMouseEnter}
+          onMouseLeave={onMouseLeave}
           onChange={onChange}
         />
       </div>
