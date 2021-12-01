@@ -14,62 +14,90 @@ const Layout = ({ children }) => {
   const [colors, setColors] = useState({
     darkmode: false,
     dark: {
-      pc: { r: 80, g: 160, b: 200, a: 1 },
-      sc: { r: 200, g: 150, b: 150, a: 1 },
+      pc: { r: 65, g: 170, b: 190, a: 1 },
+      sc: { r: 245, g: 160, b: 145, a: 1 },
       bg: { r: 10, g: 50, b: 70, a: 1 },
     },
     light: {
-      pc: { r: 50, g: 120, b: 140, a: 1 },
-      sc: { r: 230, g: 80, b: 50, a: 1 },
+      pc: { r: 65, g: 170, b: 190, a: 1 },
+      sc: { r: 245, g: 160, b: 145, a: 1 },
       bg: { r: 250, g: 250, b: 250, a: 1 },
     },
-    strings: {
-      pc: '',
-      sc: '',
-      bg: '',
-      pc1: '',
-      pc3: '',
-      sc1: '',
-      sc3: '',
-    },
+    pc: '',
+    sc: '',
+    bg: '',
+    pc05: '',
+    pc1: '',
+    pc3: '',
+    pc5: '',
+    pc7: '',
+    sc05: '',
+    sc1: '',
+    sc3: '',
+    sc5: '',
+    sc7: '',
   });
 
   useEffect(() => {
-    let compiledColor = {
+    let compiledColors = {
       pc: '',
       sc: '',
       bg: '',
+      pc05: '',
       pc1: '',
       pc3: '',
+      pc5: '',
+      pc7: '',
+      sc05: '',
       sc1: '',
       sc3: '',
+      sc5: '',
+      sc7: '',
     };
 
     colors.darkmode
-      ? (compiledColor = {
+      ? (compiledColors = {
           pc: `rgba(${colors.dark.pc.r}, ${colors.dark.pc.g}, ${colors.dark.pc.b}, ${colors.dark.pc.a})`,
           sc: `rgba(${colors.dark.sc.r}, ${colors.dark.sc.g}, ${colors.dark.sc.b}, ${colors.dark.sc.a})`,
           bg: `rgba(${colors.dark.bg.r}, ${colors.dark.bg.g}, ${colors.dark.bg.b}, ${colors.dark.bg.a})`,
-          pc1: `rgba(${colors.dark.bg.r}, ${colors.dark.bg.g}, ${colors.dark.bg.b}, 0.1)`,
-          pc3: `rgba(${colors.dark.bg.r}, ${colors.dark.bg.g}, ${colors.dark.bg.b}, 0.3)`,
-          sc1: `rgba(${colors.dark.bg.r}, ${colors.dark.bg.g}, ${colors.dark.bg.b}, 0.1)`,
-          sc3: `rgba(${colors.dark.bg.r}, ${colors.dark.bg.g}, ${colors.dark.bg.b}, 0.3)`,
+          pc05: `rgba(${colors.dark.pc.r}, ${colors.dark.pc.g}, ${colors.dark.pc.b}, 0.05)`,
+          pc1: `rgba(${colors.dark.pc.r}, ${colors.dark.pc.g}, ${colors.dark.pc.b}, 0.1)`,
+          pc3: `rgba(${colors.dark.pc.r}, ${colors.dark.pc.g}, ${colors.dark.pc.b}, 0.3)`,
+          pc5: `rgba(${colors.dark.pc.r}, ${colors.dark.pc.g}, ${colors.dark.pc.b}, 0.5)`,
+          pc7: `rgba(${colors.dark.pc.r}, ${colors.dark.pc.g}, ${colors.dark.pc.b}, 0.7)`,
+          sc05: `rgba(${colors.dark.sc.r}, ${colors.dark.sc.g}, ${colors.dark.sc.b}, 0.05)`,
+          sc1: `rgba(${colors.dark.sc.r}, ${colors.dark.sc.g}, ${colors.dark.sc.b}, 0.1)`,
+          sc3: `rgba(${colors.dark.sc.r}, ${colors.dark.sc.g}, ${colors.dark.sc.b}, 0.3)`,
+          sc5: `rgba(${colors.dark.sc.r}, ${colors.dark.sc.g}, ${colors.dark.sc.b}, 0.5)`,
+          sc7: `rgba(${colors.dark.sc.r}, ${colors.dark.sc.g}, ${colors.dark.sc.b}, 0.7)`,
         })
-      : (compiledColor = {
+      : (compiledColors = {
           pc: `rgba(${colors.light.pc.r}, ${colors.light.pc.g}, ${colors.light.pc.b}, ${colors.light.pc.a})`,
           sc: `rgba(${colors.light.sc.r}, ${colors.light.sc.g}, ${colors.light.sc.b}, ${colors.light.sc.a})`,
           bg: `rgba(${colors.light.bg.r}, ${colors.light.bg.g}, ${colors.light.bg.b}, ${colors.light.bg.a})`,
-          pc1: `rgba(${colors.light.bg.r}, ${colors.light.bg.g}, ${colors.light.bg.b}, 0.1)`,
-          pc3: `rgba(${colors.light.bg.r}, ${colors.light.bg.g}, ${colors.light.bg.b}, 0.3)`,
-          sc1: `rgba(${colors.light.bg.r}, ${colors.light.bg.g}, ${colors.light.bg.b}, 0.1)`,
-          sc3: `rgba(${colors.light.bg.r}, ${colors.light.bg.g}, ${colors.light.bg.b}, 0.3)`,
+          pc05: `rgba(${colors.light.pc.r}, ${colors.light.pc.g}, ${colors.light.pc.b}, 0.05)`,
+          pc1: `rgba(${colors.light.pc.r}, ${colors.light.pc.g}, ${colors.light.pc.b}, 0.1)`,
+          pc3: `rgba(${colors.light.pc.r}, ${colors.light.pc.g}, ${colors.light.pc.b}, 0.3)`,
+          pc5: `rgba(${colors.light.pc.r}, ${colors.light.pc.g}, ${colors.light.pc.b}, 0.5)`,
+          pc7: `rgba(${colors.light.pc.r}, ${colors.light.pc.g}, ${colors.light.pc.b}, 0.7)`,
+          sc05: `rgba(${colors.light.sc.r}, ${colors.light.sc.g}, ${colors.light.sc.b}, 0.05)`,
+          sc1: `rgba(${colors.light.sc.r}, ${colors.light.sc.g}, ${colors.light.sc.b}, 0.1)`,
+          sc3: `rgba(${colors.light.sc.r}, ${colors.light.sc.g}, ${colors.light.sc.b}, 0.3)`,
+          sc5: `rgba(${colors.light.sc.r}, ${colors.light.sc.g}, ${colors.light.sc.b}, 0.5)`,
+          sc7: `rgba(${colors.light.sc.r}, ${colors.light.sc.g}, ${colors.light.sc.b}, 0.7)`,
         });
 
     setColors({
       ...colors,
-      strings: compiledColor,
+      ...compiledColors,
     });
-  }, [colors.dark, colors.light, colors.darkmode]);
+  }, [
+    colors.dark.pc,
+    colors.dark.sc,
+    colors.dark.bg,
+    colors.light,
+    colors.darkmode,
+  ]);
   //#endregion
 
   const [modals, setModals] = useState({
@@ -99,39 +127,89 @@ const Layout = ({ children }) => {
       <style jsx global>
         {`
           .pc {
-            color: ${colors.strings.pc};
+            color: ${colors && colors.pc};
           }
           .sc {
-            color: ${colors.strings.sc};
+            color: ${colors && colors.sc};
           }
           .bg {
-            background: ${colors.strings.bg};
+            background: ${colors && colors.bg};
           }
 
           .pc1 {
-            color: ${colors.strings.pc1};
+            color: ${colors && colors.pc1};
           }
           .pc3 {
-            color: ${colors.strings.pc3};
+            color: ${colors && colors.pc3};
           }
-          .sc1: {
-            color: ${colors.strings.sc1};
+          .pc5 {
+            color: ${colors && colors.pc5};
+          }
+          .pc7 {
+            color: ${colors && colors.pc7};
+          }
+          .sc1 {
+            color: ${colors && colors.sc1};
           }
           .sc3 {
-            color: ${colors.strings.sc3};
+            color: ${colors && colors.sc3};
+          }
+          .sc5 {
+            color: ${colors && colors.sc5};
+          }
+          .sc7 {
+            color: ${colors && colors.sc7};
           }
 
+          .pcbg {
+            background: ${colors && colors.pc};
+          }
+          .pc05bg {
+            background: ${colors && colors.pc05};
+          }
+          .pc1bg {
+            background: ${colors && colors.pc1};
+          }
+          .pc3bg {
+            background: ${colors && colors.pc3};
+          }
+          .scbg {
+            background: ${colors && colors.sc};
+          }
+          .sc05bg {
+            background: ${colors && colors.sc05};
+          }
+          .sc1bg {
+            background: ${colors && colors.sc1};
+          }
+          .sc3bg {
+            background: ${colors && colors.sc3};
+          }
+
+          .pc05b {
+            border: thin solid ${colors && colors.pc05} !important;
+          }
           .pc1b {
-            border-color: ${colors.strings.pc1} !important;
+            border: thin solid ${colors && colors.pc1} !important;
           }
           .pc3b {
-            border-color: ${colors.strings.pc3} !important;
+            border: thin solid ${colors && colors.pc3} !important;
+          }
+          .sc05b {
+            border: thin solid ${colors && colors.sc05} !important;
           }
           .sc1b {
-            border-color: ${colors.strings.sc1} !important;
+            border: thin solid ${colors && colors.sc1} !important;
           }
           .sc3b {
-            border-color: ${colors.strings.sc3} !important;
+            border: thin solid ${colors && colors.sc3} !important;
+          }
+        `}
+      </style>
+      <style jsx global>
+        {`
+          a {
+            color: ${colors && colors.pc};
           }
         `}
       </style>
@@ -153,8 +231,8 @@ const Main = ({ children, colors }) => {
       <style jsx>
         {`
           #main_view {
-            color: ${colors.strings.pc};
-            background: ${colors.strings.bg};
+            color: ${colors.pc};
+            background: ${colors.bg};
           }
         `}
       </style>

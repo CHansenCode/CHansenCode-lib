@@ -1,0 +1,41 @@
+.colorPicker {
+  position: relative;
+  height: 100%;
+
+  padding: 0 0.75rem 0 0;
+
+  display: flex;
+  align-items: center;
+
+  h5 {
+    font-size: 0.65rem;
+    padding: 0;
+  }
+}
+
+.shower {
+  height: 2rem;
+  width: 2rem;
+
+  margin-left: 0.5rem;
+
+  border-radius: 50%;
+}
+
+.picker {
+  position: absolute;
+  top: 100%;
+  right: 0;
+}
+
+@media screen and (max-width: 840px) {
+  .colorPicker h5 {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .colorPicker h5 {
+    display: none;
+  }
+}

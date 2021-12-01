@@ -1,34 +1,34 @@
 import { useState } from 'react';
 
-import { LayeredImage } from 'components';
+import { Hamburger } from 'components';
 import { PropMenu, PropInput } from 'components/domain';
 
 import css from './view.module.scss';
 
-export default function ViewCanvas() {
+export default function ViewHamburger() {
   const [values, setValues] = useState({
-    distortion: 40,
-    overflow: false,
+    size: '4rem',
+    openClose: false,
   });
 
   const data = {
-    title: '<LayeredImage />',
-    descr:
-      'Designed to give a user-interactive experience of layered partially transparent .png images',
+    title: '<Hamburger />',
+    descr: 'Hamburger component',
     propertyInput: [
       {
-        type: 'number',
-        label: 'distortion',
-        objKey: 'distortion',
-        increments: { small: 1, large: 5 },
-        range: { min: 0, max: 100 },
+        type: 'input',
+        label: 'size',
+        objKey: 'size',
       },
       {
         type: 'ternary',
-        label: 'overflow',
-        objKey: 'overflow',
-        increments: { small: 1, large: 5 },
-        range: { min: 0, max: 100 },
+        label: 'openClose',
+        objKey: 'openClose',
+      },
+      {
+        type: 'etc',
+        label: 'onClick',
+        objKey: 'onClick',
       },
     ],
   };
@@ -54,28 +54,17 @@ export default function ViewCanvas() {
         </PropMenu>
 
         <View>
-          <LayeredImage
-            distortMax={values.distortion}
-            overflow={values.overflow}
-          >
-            <div className="sc rectangle_layered" />
-            <div className="sc rectangle_layered" />
-            <div className="sc rectangle_layered" />
-            <div className="sc rectangle_layered" />
-            <div className="sc rectangle_layered" />
-            <div className="sc rectangle_layered" />
-            <div className="sc rectangle_layered" />
-            <div className="sc rectangle_layered" />
-          </LayeredImage>
+          <Hamburger
+            size={values.size}
+            ternary={values.openClose}
+            onClick={() => {
+              setValues({ ...values, openClose: !values.openClose });
+            }}
+          />
         </View>
       </div>
 
       <style jsx>{`
-        .rectangle_layered {
-          border: thin solid;
-          height: 100%;
-          width: 100%;
-        }
         @media screen and (max-width: 425px) {
           .view_wrapper {
             padding: 0 3vw;
@@ -101,6 +90,10 @@ const View = ({ children }) => {
             height: 100%;
             width: 100%;
             box-shadow: 0 0 3rem -1.5rem currentColor;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
           }
         `}
       </style>

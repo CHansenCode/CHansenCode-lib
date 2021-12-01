@@ -55,16 +55,18 @@ export const LayeredImage = ({ distortMax, children }) => {
         </>
       )}
 
-      {children.length > 1 &&
+      {children &&
+        children.length > 1 &&
         children.map((child, i) => (
           <Wrapper
             key={`layeredImage${i}`}
             i={i}
             distortMax={distortMax}
-            length={children.length}
+            length={children && children.length}
             coords={coords}
-            children={child}
-          />
+          >
+            {child}
+          </Wrapper>
         ))}
     </div>
   );

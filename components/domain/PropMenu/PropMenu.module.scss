@@ -1,0 +1,41 @@
+.propMenu {
+  height: 100%;
+  width: 100%;
+
+  padding: 1rem;
+
+  box-shadow: 0 0 3rem -1.5rem currentColor;
+}
+.info {
+  > h4 {
+    padding: 0;
+    margin-bottom: 0.75rem;
+  }
+
+  > div {
+    cursor: pointer;
+    > h6 {
+      margin-right: 0.5rem;
+      font-size: 0.8rem;
+      font-style: italic;
+    }
+  }
+
+  > h5 {
+    font-size: 0.8rem;
+    padding: 0.25rem 0.5rem;
+  }
+}
+
+.h5_closed {
+  height: 1px;
+  opacity: 0;
+}
+
+@media screen and (max-width: 840px) {
+  .info {
+    > h5 {
+      font-size: 0.7rem;
+    }
+  }
+}

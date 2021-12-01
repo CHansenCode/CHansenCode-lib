@@ -5,7 +5,7 @@
     "**/.next": true,
     "**/node_modules": true,
     //dists
-    "**/out": true,
+    "**/out": false,
     "**/dist": false,
 
     //settings
@@ -14,7 +14,7 @@
     "**/package.json": false,
     "**/package-lock.json": true,
     "**/jsconfig.json": true,
-    "**/.eslintrc.json": true,
+    "**/.eslintrc.json": false,
     "**/tsconfig.json": true,
     "**/next.config.js": true,
     "**/rollup.config.js": false,

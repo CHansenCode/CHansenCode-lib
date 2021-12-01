@@ -1,0 +1,21 @@
+.main {
+  position: relative;
+  min-height: calc(100vh - 4rem);
+
+  padding: 0 3vw;
+  width: 100%;
+
+  display: grid;
+  grid-template: 'props view' 1fr / 16rem 1fr;
+  grid-gap: 1.5rem;
+}
+
+@media screen and (max-width: 425px) {
+  .main {
+    padding: 0 3vw;
+    grid-gap: 1rem;
+    grid-template:
+      'props' auto
+      'view' 1fr / 1fr;
+  }
+}

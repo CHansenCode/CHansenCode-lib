@@ -9,7 +9,7 @@ export const NextLink = ({ href, exact, children, ...props }) => {
   const isActive = exact ? pathname === href : pathname.startsWith(href);
 
   if (isActive) {
-    props.className += ' active';
+    props.className += ' sc';
   }
 
   return (
@@ -24,7 +24,6 @@ export const NextLink = ({ href, exact, children, ...props }) => {
 const inline = {
   a: {
     textDecoration: 'none',
-    color: 'currentColor',
   },
 };
 

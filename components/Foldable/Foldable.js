@@ -4,7 +4,10 @@ import { Button } from 'chansencode-lib';
 export function Foldable() {
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <div style={{ height: isOpen ? '20rem' : '10rem', border: 'thin solid' }}>
+    <div
+      className={`${css.foldable} ${isOpen && css.open}`}
+      style={{ height: isOpen ? '20rem' : '10rem' }}
+    >
       <Button children="cow" onClick={() => setIsOpen(!isOpen)} />
     </div>
   );

@@ -6,6 +6,7 @@ export * from './Item';
 
 export * from './Loading';
 export * from './Hamburger';
+export * from './ColorPicker';
 
 export * from './Form';
 export * from './Input';
@@ -15,13 +16,12 @@ export * from './InputField';
 
 export * from './LayeredImage';
 export * from './Foldable';
-export * from './Canvas';
+export * from './Diagram';
 
 //Missing safari compability (svg props)
 export * from './Logo';
 
 //to be checked
-export * from './Dropdown';
 export * from './IconOnHoverInfo';
 export * from './Image';
 

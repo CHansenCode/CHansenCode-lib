@@ -27,7 +27,7 @@ export const Canvas = props => {
       return false;
     }
     resizeCanvasToDisplaySize(canvasRef);
-  }, []);
+  }, [canvasRef]);
 
   return (
     <canvas height={size.height} width={size.width} ref={canvasRef} {...rest} />

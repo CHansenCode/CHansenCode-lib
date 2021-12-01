@@ -6,5 +6,8 @@
         "paths": ["."]
       }
     }
+  },
+  "rules": {
+    "react/no-children-prop": "off"
   }
 }
