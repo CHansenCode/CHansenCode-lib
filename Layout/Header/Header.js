@@ -1,6 +1,7 @@
 import { GiYinYang } from 'react-icons/gi';
-import { NextLink, Button, Item, ColorPicker } from 'components';
-import { Dropdown } from 'components/domain';
+import { Button, ColorPicker } from 'components';
+import { NextLink } from 'components/DEVELOPMENT';
+import { Dropdown } from '@/components/DOMAIN';
 
 import css from './Header.module.scss';
 
@@ -38,7 +39,7 @@ const Header = ({ className, colors, setColors }) => {
         <nav id="nav" className="pc">
           <h4 className={`${css.logo} sc`}>{meta.projectName}</h4>
 
-          <Dropdown>
+          <Dropdown title="Menu">
             <div className={css.navLink_wrapper}>
               {navRoutes.map(route => (
                 <NextLink key={route.title} href={route.route}>

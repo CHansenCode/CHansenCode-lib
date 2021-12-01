@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 import { Hamburger } from 'components';
-import { PropMenu, PropInput } from 'components/domain';
+import { PropMenu, PropInput } from '@/components/DOMAIN';
 
 import css from './view.module.scss';
 

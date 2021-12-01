@@ -11,8 +11,7 @@ export * from './ColorPicker';
 export * from './Form';
 export * from './Input';
 export * from './Textarea';
-export * from './Select';
-export * from './InputField';
+export * from './DEVELOPMENT/Select';
 
 export * from './LayeredImage';
 export * from './Foldable';
@@ -23,10 +22,3 @@ export * from './Logo';
 
 //to be checked
 export * from './IconOnHoverInfo';
-export * from './Image';
-
-export * from './Modal';
-export * from './NextLink';
-export * from './Section';
-
-export * from './Select';

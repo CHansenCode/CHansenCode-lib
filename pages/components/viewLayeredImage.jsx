@@ -1,13 +1,13 @@
 import { useState } from 'react';
 
 import { LayeredImage } from 'components';
-import { PropMenu, PropInput } from 'components/domain';
+import { PropMenu, PropInput } from '@/components/DOMAIN';
 
 import css from './view.module.scss';
 
 export default function ViewCanvas() {
   const [values, setValues] = useState({
-    distortion: 40,
+    distortion: 20,
     overflow: false,
   });
 

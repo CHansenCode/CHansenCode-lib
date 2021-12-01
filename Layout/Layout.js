@@ -3,9 +3,8 @@ import React, { useState, useEffect } from 'react';
 import Head from 'next/head';
 
 import Header from './Header/Header';
-import Footer from './Footer/Footer';
 
-import { Modal } from '@/components';
+import { Modal } from 'components/DEVELOPMENT';
 
 import css from './Layout.module.scss';
 

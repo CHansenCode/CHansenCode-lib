@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
 //domain
-import { Section } from '@/components';
+import { Section } from 'components/DOMAIN';
 
 export default function Home({ colors }) {
   const [ternary, setTernary] = useState(false);
