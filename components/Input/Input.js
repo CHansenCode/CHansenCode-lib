@@ -6,6 +6,7 @@ export const Input = ({
   //custom props
   label,
   info,
+  type,
 
   //input html
   placeholder,
@@ -42,6 +43,7 @@ export const Input = ({
         </header>
 
         <input
+          type={type}
           placeholder={placeholder}
           name={name}
           id={id}

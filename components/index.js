@@ -16,6 +16,7 @@ export * from './DEVELOPMENT/Select';
 export * from './LayeredImage';
 export * from './Foldable';
 export * from './Diagram';
+export * from './InputField';
 
 //Missing safari compability (svg props)
 export * from './Logo';

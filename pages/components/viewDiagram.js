@@ -14,8 +14,7 @@ export default function ViewDiagram() {
 
   const data = {
     title: '<Diagram />',
-    descr:
-      'Designed to give a user-interactive experience of layered partially transparent .png images',
+    descr: 'svg prop cofigurable loading component',
     propertyInput: [
       {
         type: 'input',

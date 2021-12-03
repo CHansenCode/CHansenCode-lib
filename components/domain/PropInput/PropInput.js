@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 import { Button, Input, Textarea } from 'components';
 
 import css from './PropInput.module.scss';
@@ -6,10 +8,12 @@ export const PropInput = ({
   label,
   objKey,
   type,
+  options,
   values,
   setValues,
   increments,
 }) => {
+  const [open, setOpen] = useState(false);
   switch (type) {
     case 'input':
       return (
@@ -104,13 +108,48 @@ export const PropInput = ({
           </Button>
         </div>
       );
-    case 'etc':
+    case 'select':
       return (
-        <div className={`${css.common} ${css.ternary}`}>
-          {label && <h5 className="sc">{label}</h5>}
+        <div className={`${css.common} ${css.select}`}>
+          {options.map((o, i) => (
+            <Button
+              className={values[objKey] === o && 'sc'}
+              key={`${o}${i}`}
+              onClick={() => setValues({ ...values, [objKey]: o })}
+            >
+              {o}
+            </Button>
+          ))}
+        </div>
+      );
+    case 'dropdown':
+      return (
+        <div className={`sc3b ${css.common} ${css.dropdown}`}>
+          <div className="sc" onClick={() => setOpen(!open)}>
+            <h5>{values[objKey]}</h5>
+            <h6>{`^`}</h6>
+          </div>
+
+          <ul
+            className={`bg pc3b ${open && css.dropdown_open}`}
+            onMouseLeave={() => setOpen(false)}
+          >
+            {options.map((o, i) =>
+              !(values[objKey] === o) ? (
+                <h5
+                  key={`${o}${i}`}
+                  onClick={() =>
+                    setValues({ ...values, [objKey]: o }, setOpen(false))
+                  }
+                >
+                  {o}
+                </h5>
+              ) : null,
+            )}
+          </ul>
         </div>
       );
     default:
-      return "please specify 'type:'";
+      return 'TYPE: not found';
   }
 };

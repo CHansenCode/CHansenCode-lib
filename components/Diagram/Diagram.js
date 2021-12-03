@@ -13,18 +13,13 @@ export const Diagram = ({ size, factor, strokeWidth }) => {
   let strokeDasharray = radius * 2 * Math.PI;
 
   const propStyles = {
-    height: size && '2rem',
-    width: size && '2rem',
-    border: 'thin solid',
+    height: size,
+    width: size,
     overflow: 'hidden',
   };
 
   return (
-    <div
-      style={propStyles}
-      className={css.wrapper}
-      style={{ height: size, width: size }}
-    >
+    <div style={propStyles} className={css.wrapper}>
       <svg
         height="100%"
         width="100%"
