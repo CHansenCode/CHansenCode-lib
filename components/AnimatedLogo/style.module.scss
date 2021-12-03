@@ -1,0 +1,52 @@
+.design {
+  transform: translate(0, 0);
+}
+.hristoffer {
+  transform: translate(0, 0);
+}
+.ansen {
+  transform: translate(0, 0);
+}
+.c {
+  transform: translate(0, 0);
+  animation: kip 1.5s linear forwards;
+  transition: 3s ease;
+}
+.h {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.dot {
+  transform: translate(0, 0);
+}
+
+@mixin bubbleWrapper() {
+  $circlesCount: 8;
+  $angle: 360deg / $circlesCount;
+
+  @for $i from 1 through $circlesCount {
+    > :nth-child(#{$i}) {
+      transform: rotate(($i * $angle));
+    }
+  }
+}
+
+@keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes kip {
+  0% {
+    d: 'M308.9,610c-168.5,0-305-136.6-305-305S140.4,0,308.9,0V20c-157.4,0-285,127.6-285,285s127.6,285,285,285H2727.8v20Z';
+  }
+  100% {
+    d: 'M1532.8,610c-168.4,0-305-136.6-305-305S1364.4,0,1532.8,0V20c-157.4,0-285,127.6-285,285s127.6,285,285,285h1195v20Z';
+  }
+}
+
+.test {
+  animation: spin 1.5s linear infinite;
+}
