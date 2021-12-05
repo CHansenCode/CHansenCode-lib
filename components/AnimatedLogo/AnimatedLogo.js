@@ -122,5 +122,3 @@ export const AnimatedLogo = () => {
     </svg>
   );
 };
-
-export default AnimationCHansen;

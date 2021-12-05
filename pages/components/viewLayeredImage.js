@@ -7,7 +7,7 @@ import css from './view.module.scss';
 
 export default function ViewCanvas() {
   const [values, setValues] = useState({
-    distortion: 20,
+    distortMax: 20,
     overflow: false,
   });
 
@@ -18,8 +18,8 @@ export default function ViewCanvas() {
     propertyInput: [
       {
         type: 'number',
-        label: 'distortion',
-        objKey: 'distortion',
+        label: 'distortMax',
+        objKey: 'distortMax',
         increments: { small: 1, large: 5 },
         range: { min: 0, max: 100 },
       },

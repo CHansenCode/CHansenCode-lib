@@ -232,44 +232,7 @@ export const InputField = ({
     default:
       return (
         <div className={`${css.common_wrapper} ${className}`}>
-          <header>
-            {label || required ? (
-              <div className={css.label}>
-                {required && <h6 className="sc">*</h6>}
-
-                {label && <h5>{label} :</h5>}
-              </div>
-            ) : (
-              <div></div>
-            )}
-
-            {info && (
-              <div className={css.info}>
-                <h6>i</h6>
-                <h5>{info}</h5>
-              </div>
-            )}
-          </header>
-
-          <input
-            id={id}
-            className={`${css.ele} ${css.input}`}
-            style={style}
-            value={value}
-            placeholder={placeholder}
-            name={name}
-            //
-            onChange={e => setData({ ...data, [objKey]: e.target.value })}
-            required={required ? true : false}
-            readOnly={readOnly ? true : false}
-            //
-            // extra functions
-            label={label}
-            valid={valid}
-            info={info}
-            {...props}
-          />
-          {valid && <div className={css.checkmark}>✓</div>}
+          {`Please specify type:`}
         </div>
       );
   }
