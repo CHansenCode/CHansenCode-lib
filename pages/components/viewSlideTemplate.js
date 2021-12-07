@@ -14,7 +14,7 @@ export default function ViewCanvas() {
   });
 
   const data = {
-    title: '<LayeredImage />',
+    title: '<SlideTemplate />',
     descr:
       'Used on cms for editing Presentations, used on website for presentation',
     propertyInput: [

@@ -11,7 +11,7 @@
   ],
   "scripts": {
     "dev": "next dev -p 3500",
-    "build": "next build",
+    "build": "next build && next export",
     "export": "next build && next export",
     "build-lib": "rollup -c",
     "test": "echo \"Error: no test specified\" && exit 1"

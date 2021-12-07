@@ -1,3 +1,5 @@
+import React from 'react';
+
 import css from './SlideTemplate.module.scss';
 
 export const SlideTemplate = ({ data, template }) => {
