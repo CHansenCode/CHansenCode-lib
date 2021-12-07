@@ -31,6 +31,7 @@ export const InputField = ({
   ...props
 }) => {
   const [open, setOpen] = useState(false);
+  const [focus, setFocus] = useState(false);
   switch (type) {
     case 'input':
       return (

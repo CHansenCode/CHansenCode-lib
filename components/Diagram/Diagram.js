@@ -2,7 +2,7 @@ import React, { useRef, useEffect } from 'react';
 
 import css from './Diagram.module.scss';
 
-export const Diagram = ({ size, factor, strokeWidth }) => {
+export const Diagram = ({ size, factor, strokeWidth, ...props }) => {
   const myRef = useRef(null);
 
   let height = 300;
@@ -23,8 +23,9 @@ export const Diagram = ({ size, factor, strokeWidth }) => {
       <svg
         height="100%"
         width="100%"
-        className={`sc ${css.circle}`}
+        className={`${css.circle} ${props.className}`}
         viewBox={`0 0 ${height + 1} ${width + 1}`}
+        {...props}
       >
         <circle
           className="sc"

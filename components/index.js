@@ -22,6 +22,9 @@ export * from './Logo';
 //to be checked
 export * from './IconOnHoverInfo';
 
+//in dev
+export * from './SlideTemplate';
+
 //has view and are checked!!!
 
 export * from './InputField';

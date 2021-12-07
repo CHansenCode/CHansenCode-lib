@@ -17,6 +17,7 @@ export default function ViewDiagram() {
     required: false,
     valid: false,
     options: ['cow', 'horse', 'pig', 'chicken'],
+    rows: 3,
   });
 
   const data = {
@@ -128,6 +129,7 @@ export default function ViewDiagram() {
               valid={values.valid}
               required={values.required}
               info={values.info}
+              rows={values.rows}
             />
           </div>
         </View>
