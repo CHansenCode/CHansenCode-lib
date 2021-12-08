@@ -5,7 +5,7 @@ import { PropMenu, PropInput } from '@/components/DOMAIN';
 
 import css from './view.module.scss';
 
-export default function ViewCanvas() {
+export default function ViewCanvas({ colors }) {
   const [values, setValues] = useState({
     numberKey: 40,
     inputKey: '',
@@ -14,8 +14,8 @@ export default function ViewCanvas() {
 
     height: 'auto',
     width: '50%',
-    pc: 'teal',
-    sc: 'coral',
+    pc: 'primary',
+    sc: 'secondary',
   });
 
   const data = {
@@ -32,16 +32,6 @@ export default function ViewCanvas() {
         type: 'input',
         label: 'width',
         objKey: 'width',
-      },
-      {
-        type: 'input',
-        label: 'pc (PrimaryColor)',
-        objKey: 'pc',
-      },
-      {
-        type: 'input',
-        label: 'sc (SecondaryColor)',
-        objKey: 'sc',
       },
     ],
   };
@@ -70,8 +60,8 @@ export default function ViewCanvas() {
           <Logo
             height={values.height}
             width={values.width}
-            pc={values.pc}
-            sc={values.sc}
+            pc={colors.pc}
+            sc={colors.sc}
           />
         </View>
       </div>
