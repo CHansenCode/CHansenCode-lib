@@ -23,12 +23,14 @@ export const SlideTemplate = ({ data, template }) => {
 
 const Content = ({ data, cName }) => {
   return (
-    <div className={`bg ${css.common} ${cName}`}>
-      <h4 className="sc">{data.title}</h4>
-      <p>{data.body}</p>
-      <div className={css.imgContainer}>
-        <img src={data.url} />
+    data && (
+      <div className={`bg ${css.common} ${cName}`}>
+        <h4 className="sc">{data.title}</h4>
+        <p>{data.body}</p>
+        <div className={css.imgContainer}>
+          <img src={data.url} />
+        </div>
       </div>
-    </div>
+    )
   );
 };

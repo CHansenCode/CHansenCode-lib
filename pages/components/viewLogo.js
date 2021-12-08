@@ -1,33 +1,47 @@
 import { useState } from 'react';
 
-import { SlideTemplate } from 'components';
+import { Logo } from 'components';
 import { PropMenu, PropInput } from '@/components/DOMAIN';
 
 import css from './view.module.scss';
 
 export default function ViewCanvas() {
   const [values, setValues] = useState({
-    template: 0,
-    title: 'a title',
-    body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis dolor fugit molestias corrupti inventore accusantium ducimus laboriosam itaque temporibus, nulla officia beatae similique animi quod praesentium placeat, nam consequatur, quasi quos magni ipsa quas repudiandae! Ab voluptatum corporis quas soluta rem. Tenetur omnis, alias totam eum maxime eius facere eligendi?',
-    url: 'https://media.chansen.design/placeholder.jpg',
+    numberKey: 40,
+    inputKey: '',
+    textareaKey: '',
+    ternaryKey: false,
+
+    height: 'auto',
+    width: '50%',
+    pc: 'teal',
+    sc: 'coral',
   });
 
   const data = {
-    title: '<SlideTemplate />',
+    title: '<Logo />',
     descr:
-      'Used on cms for editing Presentations, used on website for presentation',
+      'Chansen Design Logo, .svg format. Only the "fill" props are used for coloring. pc = PrimaryColor, accepts string like css. sc = SecondaryColor',
     propertyInput: [
       {
-        type: 'dropdown',
-        label: 'template',
-        objKey: 'template',
-        options: [0, 1, 2, 3, 4, 5],
+        type: 'input',
+        label: 'height',
+        objKey: 'height',
       },
       {
-        type: 'object',
-        label: 'data',
-        objKey: 'data',
+        type: 'input',
+        label: 'width',
+        objKey: 'width',
+      },
+      {
+        type: 'input',
+        label: 'pc (PrimaryColor)',
+        objKey: 'pc',
+      },
+      {
+        type: 'input',
+        label: 'sc (SecondaryColor)',
+        objKey: 'sc',
       },
     ],
   };
@@ -48,13 +62,17 @@ export default function ViewCanvas() {
               setValues={setValues}
               increment={p.increment}
               range={p.range}
-              options={p.options}
             />
           ))}
         </PropMenu>
 
-        <View>
-          <SlideTemplate data={values} template={values.template} />
+        <View padding="0">
+          <Logo
+            height={values.height}
+            width={values.width}
+            pc={values.pc}
+            sc={values.sc}
+          />
         </View>
       </div>
 
@@ -63,7 +81,7 @@ export default function ViewCanvas() {
   );
 }
 
-const View = ({ children }) => {
+const View = ({ children, padding }) => {
   return (
     <>
       <div className="view_view pc3b">{children}</div>
@@ -71,9 +89,15 @@ const View = ({ children }) => {
       <style jsx>
         {`
           .view_view {
-            height: 80vh;
+            height: 100%;
             width: 100%;
+
+            padding: ${padding ? padding : '0'}
             box-shadow: 0 0 3rem -1.5rem currentColor;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
           }
         `}
       </style>

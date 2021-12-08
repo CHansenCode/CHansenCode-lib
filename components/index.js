@@ -16,18 +16,13 @@ export * from './DEVELOPMENT/Select';
 export * from './Foldable';
 export * from './AnimatedLogo';
 
-//Missing safari compability (svg props)
-export * from './Logo';
-
 //to be checked
 export * from './IconOnHoverInfo';
-
-//in dev
-export * from './SlideTemplate';
-
 //has view and are checked!!!
 
 export * from './InputField';
 export * from './Hamburger';
 export * from './Diagram';
 export * from './LayeredImage';
+export * from './SlideTemplate';
+export * from './Logo';
