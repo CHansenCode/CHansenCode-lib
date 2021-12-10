@@ -18,8 +18,11 @@ export * from './AnimatedLogo';
 
 //to be checked
 export * from './IconOnHoverInfo';
-//has view and are checked!!!
 
+//DEVELOPMENT
+export * from './DBimgPicker';
+
+// ** view & checked
 export * from './InputField';
 export * from './Hamburger';
 export * from './Diagram';

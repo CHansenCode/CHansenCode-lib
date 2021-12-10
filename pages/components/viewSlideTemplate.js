@@ -54,7 +54,13 @@ export default function ViewCanvas() {
         </PropMenu>
 
         <View>
-          <SlideTemplate data={values} template={values.template} />
+          <SlideTemplate template={values.template}>
+            <h4 className="sc">title Data</h4>
+            <p>Body data</p>
+            <div className={css.imgContainer}>
+              <img src="https://media.chansen.design/placeholder.jpg" />
+            </div>
+          </SlideTemplate>
         </View>
       </div>
 

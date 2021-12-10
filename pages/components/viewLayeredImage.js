@@ -55,7 +55,7 @@ export default function ViewCanvas() {
 
         <View>
           <LayeredImage
-            distortMax={values.distortion}
+            distortMax={values.distortMax}
             overflow={values.overflow}
           >
             <div className="sc rectangle_layered" />
