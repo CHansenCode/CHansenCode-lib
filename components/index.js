@@ -4,8 +4,6 @@ export * from './Button';
 export * from './List';
 export * from './Item';
 
-export * from './Loading';
-
 export * from './ColorPicker';
 
 export * from './Form';
@@ -21,6 +19,8 @@ export * from './IconOnHoverInfo';
 
 //DEVELOPMENT
 export * from './DBimgPicker';
+export * from './Loading';
+export * from './Example';
 
 // ** view & checked
 export * from './InputField';

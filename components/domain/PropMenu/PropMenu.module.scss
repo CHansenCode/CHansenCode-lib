@@ -2,35 +2,48 @@
   height: 100%;
   width: 100%;
 
-  padding: 1rem;
+  padding: 0.5rem;
 
   box-shadow: 0 0 3rem -1.5rem currentColor;
 }
-.info {
-  > h4 {
-    padding: 0;
-    margin-bottom: 0.75rem;
-  }
 
-  > div {
-    cursor: pointer;
-    > h6 {
+//#region ** Card - subcomponent
+.card {
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  > h4 {
+    margin-bottom: 0.5rem;
+  }
+}
+
+.descr {
+  cursor: pointer;
+  > header {
+    display: flex;
+    :nth-child(1) {
       margin-right: 0.5rem;
-      font-size: 0.8rem;
-      font-style: italic;
     }
   }
 
   > h5 {
-    font-size: 0.8rem;
-    padding: 0.25rem 0.5rem;
+    height: 1px;
+    opacity: 0;
+    font-size: 0.85rem;
+    pointer-events: none;
+  }
+
+  &:hover {
+    outline: thin solid rgba(0, 0, 0, 0.1);
   }
 }
-
-.h5_closed {
-  height: 1px;
-  opacity: 0;
+.descr_open {
+  > h5 {
+    opacity: 1;
+    height: min-content;
+    padding: 4px 2px 4px 4px;
+  }
 }
+//#endregion
 
 @media screen and (max-width: 840px) {
   .info {

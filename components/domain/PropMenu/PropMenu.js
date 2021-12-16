@@ -1,35 +1,35 @@
 import { useState } from 'react';
 
-import { Button } from 'components';
-
 import css from './PropMenu.module.scss';
 
 export const PropMenu = ({ data, children }) => {
-  const [open, setOpen] = useState(true);
   return (
     <div className={`bg pc3b ${css.propMenu}`}>
-      <Info
-        open={open}
-        setOpen={setOpen}
-        title={data.title}
-        descr={data.descr}
-      />
+      <Card title={data.title} descr={data.descr} />
       {children}
     </div>
   );
 };
 
-const Info = ({ open, setOpen, title, descr }) => {
+const Card = ({ title, descr }) => {
+  const [open, setOpen] = useState(true);
   return (
-    <div className={`${css.info}`}>
+    <div className={`${css.card} pc1bg`}>
       <h4 className="sc">{title}</h4>
 
-      <div style={{ display: 'flex' }} onClick={() => setOpen(!open)}>
-        <h6 className="pc5">{open ? '▲' : '▼'}</h6>
-        <h6 className="pc">descr:</h6>
-      </div>
+      {descr && (
+        <div
+          className={`${css.descr} ${open ? css.descr_open : ''}`}
+          onClick={() => setOpen(!open)}
+        >
+          <header>
+            <h6 className="pc5">{open ? '▲' : '▼'}</h6>
+            <h6 className="sc">description:</h6>
+          </header>
 
-      <h5 className={`${!open && css.h5_closed} sc1bg`}>{descr}</h5>
+          <h5 className={`bg pc3b`}>{descr}</h5>
+        </div>
+      )}
     </div>
   );
 };
