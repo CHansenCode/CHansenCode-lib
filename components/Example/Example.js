@@ -1,3 +1,5 @@
+import react from 'react';
+
 import css from './Example.module.scss';
 
 export const Example = ({

@@ -136,8 +136,8 @@ export const PropInput = ({
               ))
             ) : (
               <p>
-                'no array found in <span className="sc">"OPTIONS"</span> prop of
-                'select' type inputConstructor'
+                no array found in <span className="sc">OPTIONS</span> prop of
+                select type inputConstructor
               </p>
             )}
           </div>
