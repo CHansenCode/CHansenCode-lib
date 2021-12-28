@@ -5,7 +5,7 @@ import { Dropdown } from '@/components/DOMAIN';
 
 import css from './Header.module.scss';
 
-import { navRoutes, meta } from '@/config';
+import { navigation, meta } from '@/config';
 
 const Header = ({ className, colors, setColors }) => {
   function handlePrimaryChange(color) {
@@ -43,7 +43,7 @@ const Header = ({ className, colors, setColors }) => {
 
           <Dropdown title="Menu">
             <div className={css.navLink_wrapper}>
-              {navRoutes.map(route => (
+              {navigation.map(route => (
                 <NextLink key={route.title} href={route.route}>
                   <h5 className={css.navLink}>{route.title}</h5>
                 </NextLink>

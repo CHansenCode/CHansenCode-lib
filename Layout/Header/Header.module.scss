@@ -48,6 +48,10 @@
 .logo {
   height: 100%;
   padding: 0 1rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .navLink_wrapper {
