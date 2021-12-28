@@ -40,6 +40,12 @@ export const SlideTemplate = ({ template, children, ...props }) => {
           {children}
         </Content>
       );
+    case 'intro':
+      return (
+        <Content cName={`${css.intro} ${props.className}`} {...props}>
+          {children}
+        </Content>
+      );
     default:
       return (
         <Content cName={`${css.zero} ${props.className}`} {...props}>

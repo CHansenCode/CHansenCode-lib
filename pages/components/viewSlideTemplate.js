@@ -6,6 +6,9 @@ import { PropMenu, PropInput } from '@/components/DOMAIN';
 import css from './view.module.scss';
 
 export default function ViewCanvas() {
+  const [controller, setController] = useState({
+    asideProportion: 3,
+  });
   const [values, setValues] = useState({
     template: 0,
     title: 'a title',
@@ -22,12 +25,18 @@ export default function ViewCanvas() {
         type: 'dropdown',
         label: 'template',
         objKey: 'template',
-        options: [0, 1, 2, 3, 4, 5],
+        options: ['intro', 0, 1, 2, 3, 4, 5],
       },
       {
-        type: 'object',
-        label: 'data',
-        objKey: 'data',
+        type: 'input',
+        label: 'title',
+        objKey: 'title',
+      },
+      {
+        type: 'textarea',
+        label: 'body',
+        objKey: 'body',
+        rows: 10,
       },
     ],
   };
@@ -35,7 +44,12 @@ export default function ViewCanvas() {
   return (
     <>
       <div className={css.main}>
-        <PropMenu data={data} values={values} setValues={setValues}>
+        <PropMenu
+          data={data}
+          values={values}
+          setValues={setValues}
+          onExpand={() => setController()}
+        >
           <br />
           <p style={{ marginBottom: '0.5rem' }}>PROPS:</p>
           {data.propertyInput.map((p, i) => (
@@ -49,14 +63,15 @@ export default function ViewCanvas() {
               increment={p.increment}
               range={p.range}
               options={p.options}
+              rows={p.rows}
             />
           ))}
         </PropMenu>
 
         <View>
           <SlideTemplate template={values.template}>
-            <h4 className="sc">title Data</h4>
-            <p>Body data</p>
+            <h4 className="sc">{values.title}</h4>
+            <p>{values.body}</p>
             <div className={css.imgContainer}>
               <img src="https://media.chansen.design/placeholder.jpg" />
             </div>

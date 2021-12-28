@@ -1,21 +1,25 @@
 import { useState } from 'react';
 
+import { Button } from 'components';
+
 import css from './PropMenu.module.scss';
 
-export const PropMenu = ({ data, children }) => {
+export const PropMenu = ({ data, children, onExpand }) => {
   return (
     <div className={`bg pc3b ${css.propMenu}`}>
-      <Card title={data.title} descr={data.descr} />
+      <Card title={data.title} descr={data.descr} onExpand={onExpand} />
       {children}
     </div>
   );
 };
 
-const Card = ({ title, descr }) => {
+const Card = ({ title, descr, onExpand }) => {
   const [open, setOpen] = useState(true);
   return (
     <div className={`${css.card} pc1bg`}>
       <h4 className="sc">{title}</h4>
+
+      <Button onClick={() => onExpand}>{`>`}</Button>
 
       {descr && (
         <div

@@ -6,7 +6,7 @@
   overflow: hidden;
 
   display: grid;
-  grid-gap: 3rem;
+  grid-gap: 2rem;
 
   > :nth-child(1) {
     grid-area: title;
@@ -67,4 +67,18 @@
   grid-template:
     'title image' auto
     'body image ' 1fr/ 2fr 2fr;
+}
+
+.intro {
+  grid-template:
+    '. . .' 1fr
+    '. title .' auto
+    '. body .' 2fr
+    '. . .' 1fr/ 20% auto 40%;
+  > * {
+    border: thin solid;
+  }
+  :nth-child(3) {
+    display: none;
+  }
 }

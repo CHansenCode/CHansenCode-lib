@@ -37,7 +37,9 @@ const Header = ({ className, colors, setColors }) => {
     <>
       <header className={`${className} ${css.header} pc pc3b`}>
         <nav id="nav" className="pc">
-          <h4 className={`${css.logo} sc`}>{meta.projectName}</h4>
+          <NextLink href="/">
+            <h4 className={`${css.logo} sc`}>{meta.projectName}</h4>
+          </NextLink>
 
           <Dropdown title="Menu">
             <div className={css.navLink_wrapper}>
