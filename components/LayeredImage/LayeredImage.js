@@ -1,8 +1,12 @@
 import React, { useState, useRef, useCallback } from 'react';
-
-import { useThrottledCallback } from 'lib';
+import throttle from 'lodash.throttle';
 
 import css from './LayeredImage.module.scss';
+
+const useThrottledCallback = (callback, wait) => {
+  const throttledFunction = useCallback(throttle(callback, wait), []);
+  return [throttledFunction];
+};
 
 export const LayeredImage = ({ children, ...props }) => {
   const [coords, setCoords] = useState({
