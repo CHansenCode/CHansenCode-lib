@@ -11,6 +11,18 @@ export default function ViewArchitectureFrame({ colors }) {
   const [values, setValues] = useState({
     input: 'example text',
     width: 80,
+    data: {
+      drawingTitle: 'situationsplan',
+      project: 'project name',
+      imgUrl: 'https://media.chansen.design/architecture/ishallen/a101.jpg',
+      owner: 'Jane Doe',
+      architect: 'CH',
+      handler: 'CH',
+      author: 'CH',
+      scale: '500',
+      date: '2022-01-01',
+    },
+    logoUrl: '',
   });
 
   //input constructor
@@ -19,7 +31,7 @@ export default function ViewArchitectureFrame({ colors }) {
     descr: `
     Swedish architecture drawing frame.
 
-    Scales by width, height is set by javascript to contain proportions.
+    Scales by width, resize listener that keeps proportions to 1.41 (a4,a3,a2,a1 ratio).
     `,
   };
   let propInputs = [
@@ -62,7 +74,11 @@ export default function ViewArchitectureFrame({ colors }) {
 
       <View>
         {/* COMPONENT GOES HERE */}
-        <ArchitectureFrame width={`${values.width}%`} input={values.input} />
+        <ArchitectureFrame
+          width={`${values.width}%`}
+          logoUrl={values.logoUrl}
+          data={{ ...values.data }}
+        />
       </View>
     </div>
   );

@@ -2,12 +2,12 @@
   position: relative;
   width: 100%;
 
-  border: thin solid rgba(0, 0, 0, 0);
+  border: thin solid rgba(0, 0, 0, 0.1);
   box-shadow: 0 0 3rem -2rem black;
 
   padding: 0.5rem;
 
-  transition: 0.5s ease;
+  transition: 0.4s ease;
 }
 
 .container {
@@ -36,7 +36,7 @@
   }
 }
 
-.view {
+#view {
   position: relative;
   overflow: hidden;
   > div {

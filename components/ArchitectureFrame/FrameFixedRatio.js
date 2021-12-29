@@ -1,39 +1,46 @@
 import React, { useState, useEffect, useRef } from 'react';
-import debounce from 'lodash.debounce';
 
 export const FrameFixedRatio = ({ ...props }) => {
-  const [height, setHeight] = useState(0);
-  const [width, setWidth] = useState(props.width);
-  const myRef = useRef();
+  const [dimensions, setDimensions] = useState({
+    height: 1,
+    width: 1,
+  });
 
-  //init
-  useEffect(() => {
-    let width = myRef.current.getBoundingClientRect().width;
-    let paperRatio = 1.41;
-    setHeight(width / paperRatio);
-  }, []);
-
-  //listener
-  const adjustHeight = debounce(() => {
-    setHeight(width / paperRatio);
-  }, 250);
+  const wrapper = useRef(null);
 
   useEffect(() => {
-    myRef.current.getBoundingClientRect().width;
-    return () => {};
-  }, []);
+    const checkWidth = setInterval(() => {
+      const current = wrapper && wrapper.current;
+      //
+      let currentWidth = current.getBoundingClientRect().width;
+
+      if (!(currentWidth === dimensions.width)) {
+        setDimensions({
+          width: currentWidth.toFixed(0),
+        });
+      }
+    }, 500);
+
+    return () => {
+      clearInterval(checkWidth);
+    };
+  }, [wrapper]);
 
   useEffect(() => {
-    console.log('width changed');
-  }, [width]);
+    setDimensions({
+      ...dimensions,
+      height: (dimensions.width / 1.41).toFixed(0),
+    });
+  }, [dimensions.width]);
 
   const propStyles = {
     width: props.width ? props.width : '100%',
-    height: height ? height : props.width ? props.width / 1.41 : 'min-content',
+    height: `${dimensions.height}px`,
+    overflow: 'hidden',
   };
 
   return (
-    <div style={propStyles} className={props.className} ref={myRef}>
+    <div style={propStyles} className={props.className} ref={wrapper}>
       {props.children}
     </div>
   );

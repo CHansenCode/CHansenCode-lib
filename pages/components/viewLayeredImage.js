@@ -9,6 +9,7 @@ export default function ViewCanvas() {
   const [values, setValues] = useState({
     distortMax: 20,
     overflow: false,
+    throttle: 100,
   });
 
   const data = {
@@ -27,8 +28,6 @@ export default function ViewCanvas() {
         type: 'ternary',
         label: 'overflow',
         objKey: 'overflow',
-        increments: { small: 1, large: 5 },
-        range: { min: 0, max: 100 },
       },
     ],
   };
@@ -54,23 +53,30 @@ export default function ViewCanvas() {
         </PropMenu>
 
         <View>
-          <LayeredImage
-            distortMax={values.distortMax}
-            overflow={values.overflow}
-          >
-            <div className="sc rectangle_layered" />
-            <div className="sc rectangle_layered" />
-            <div className="sc rectangle_layered" />
-            <div className="sc rectangle_layered" />
-            <div className="sc rectangle_layered" />
-            <div className="sc rectangle_layered" />
-            <div className="sc rectangle_layered" />
-            <div className="sc rectangle_layered" />
-          </LayeredImage>
+          <div id="half_size_wrapper">
+            <LayeredImage
+              distortMax={values.distortMax}
+              overflow={!values.overflow}
+              throttle={values.throttle}
+            >
+              <div className="sc rectangle_layered" />
+              <div className="sc rectangle_layered" />
+              <div className="sc rectangle_layered" />
+              <div className="sc rectangle_layered" />
+              <div className="sc rectangle_layered" />
+              <div className="sc rectangle_layered" />
+              <div className="sc rectangle_layered" />
+              <div className="sc rectangle_layered" />
+            </LayeredImage>
+          </div>
         </View>
       </div>
 
       <style jsx>{`
+        #half_size_wrapper {
+          height: 35%;
+          width: 35%;
+        }
         .rectangle_layered {
           border: thin solid;
           height: 100%;
@@ -93,14 +99,17 @@ export default function ViewCanvas() {
 const View = ({ children }) => {
   return (
     <>
-      <div className="view_view pc3b">{children}</div>
+      <div className="view_view">{children}</div>
 
       <style jsx>
         {`
           .view_view {
             height: 100%;
             width: 100%;
-            box-shadow: 0 0 3rem -1.5rem currentColor;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
           }
         `}
       </style>

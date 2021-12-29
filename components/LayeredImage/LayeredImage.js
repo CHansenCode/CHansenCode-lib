@@ -4,7 +4,7 @@ import { useThrottledCallback } from 'lib';
 
 import css from './LayeredImage.module.scss';
 
-export const LayeredImage = ({ distortMax, throttle, children, ...props }) => {
+export const LayeredImage = ({ children, ...props }) => {
   const [coords, setCoords] = useState({
     clientX: 0,
     clientY: 0,
@@ -18,7 +18,7 @@ export const LayeredImage = ({ distortMax, throttle, children, ...props }) => {
 
   const [throttleHandler] = useThrottledCallback(
     value => setCoords(value),
-    throttle ? throttle : 200,
+    props.throttle,
   );
 
   const handleMouseMove = useCallback(e => {
@@ -40,28 +40,30 @@ export const LayeredImage = ({ distortMax, throttle, children, ...props }) => {
   return (
     <div
       ref={boundingBox}
-      className={css.wrapper}
+      className={`${css.wrapper} ${props.overflow ? css.overflow : ''}`}
       onMouseMove={e => handleMouseMove(e)}
     >
-      {children &&
-        children.length > 1 &&
-        children.map((child, i) => (
-          <Wrapper
-            key={`layeredImage${i}`}
-            i={i}
-            distortMax={distortMax}
-            length={children && children.length}
-            coords={coords}
-          >
-            {child}
-          </Wrapper>
-        ))}
+      {children
+        ? children.length > 1 &&
+          children.map((child, i) => (
+            <Wrapper
+              key={`layeredImage${i}`}
+              i={i}
+              distortMax={props.distortMax}
+              length={children && children.length}
+              coords={coords}
+            >
+              {child}
+            </Wrapper>
+          ))
+        : 'Childless'}
     </div>
   );
 };
 
 LayeredImage.defaultProps = {
   distortMax: 10,
+  throttle: 100,
 };
 
 const Wrapper = ({ distortMax, children, length, i, coords }) => {

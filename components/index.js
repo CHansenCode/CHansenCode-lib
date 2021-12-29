@@ -20,10 +20,10 @@ export * from './IconOnHoverInfo';
 //DEVELOPMENT
 export * from './DBimgPicker';
 export * from './Loading';
-export * from './Example';
 export * from './ArchitectureFrame';
 
 // ** view & checked
+export * from './Example';
 export * from './InputField';
 export * from './Hamburger';
 export * from './Diagram';

@@ -1,19 +1,11 @@
 import React from 'react';
-import debounce from 'lodash.debounce';
-import { useState, useEffect, useRef } from 'react';
 
-import { Legend } from './Legend';
 import { FrameFixedRatio } from './FrameFixedRatio';
+import { Legend } from './Legend';
 
 import css from './ArchitectureFrame.module.scss';
 
-export const ArchitectureFrame = ({
-  width,
-  title,
-  project,
-  imgSrc,
-  children,
-}) => {
+export const ArchitectureFrame = ({ width, logoUrl, data, children }) => {
   return (
     <FrameFixedRatio width={width} className={css.wrapper}>
       <div className={css.container}>
@@ -22,8 +14,8 @@ export const ArchitectureFrame = ({
             children
           ) : (
             <div>
-              {imgSrc ? (
-                <img height="100%" width="100%" src={imgSrc} alt="" />
+              {data.imgUrl ? (
+                <img height="100%" width="100%" src={data.imgUrl} alt="" />
               ) : (
                 'no imgSrc prop found'
               )}
@@ -32,21 +24,11 @@ export const ArchitectureFrame = ({
         </div>
 
         <footer id={css.footer}>
-          <h4>{title}</h4>
+          <h4>{data.drawingTitle}</h4>
         </footer>
 
-        <Legend
-          id={css.arch_legend}
-          data={{ title: 'cow' }}
-          project={project}
-        />
+        <Legend id={css.arch_legend} logoUrl={logoUrl} data={data} />
       </div>
     </FrameFixedRatio>
   );
 };
-
-ArchitectureFrame.defaultProps = {
-  title: 'drawing title',
-};
-
-export default ArchitectureFrame;

@@ -1,14 +1,15 @@
 import css from './Legend.module.scss';
 
-export const Legend = ({ id, project, ...props }) => {
+export const Legend = ({ id, logoUrl, ...props }) => {
   //
   const data = {
+    project: props.data.project ? props.data.project : '',
     owner: props.data.owner ? props.data.owner : '',
-    architect: props.architect ? props.architect : '',
-    handler: props.handler ? props.handler : '',
-    author: props.author ? props.author : '',
-    scale: props.scale ? props.scale : '',
-    date: props.date ? props.date : '',
+    architect: props.data.architect ? props.data.architect : '',
+    handler: props.data.handler ? props.data.handler : '',
+    author: props.data.author ? props.data.author : '',
+    scale: props.data.scale ? props.data.scale : '',
+    date: props.data.date ? props.data.date : '',
   };
 
   return (
@@ -19,15 +20,15 @@ export const Legend = ({ id, project, ...props }) => {
 
       <div className={css.projectInfo}>
         <h6>projectnamn:</h6>
-        {project ? project : '...'}
+        {data.project ? data.project : '...'}
       </div>
 
       <footer>
-        <Box label="owner" value={data.owner} gridArea="proAnsv" />
+        <Box label="projektägare" value={data.owner} gridArea="proAnsv" />
         <Box label="ansv. ark" value={data.architect} gridArea="ansvArk" />
         <Box label="handl." value={data.handler} gridArea="ritadAv" />
         <Box label="ritad av" value={data.author} gridArea="hand" />
-        <Box label="scale" value={data.scale} gridArea="scale" />
+        <Box label="scale" value={`A1 - 1:${data.scale}`} gridArea="scale" />
         <Box label="date" value={data.date} gridArea="date" />
       </footer>
     </aside>

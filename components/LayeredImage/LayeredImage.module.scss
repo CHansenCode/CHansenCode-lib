@@ -2,12 +2,11 @@
   height: 100%;
   width: 100%;
   position: relative;
-  overflow: hidden;
-
   transition: 0.2s ease;
 }
-
-$height: 100%;
+.overflow {
+  overflow: hidden;
+}
 
 .childWrapper {
   position: absolute;
