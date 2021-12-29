@@ -1,6 +1,6 @@
 {
   "name": "chansencode-lib",
-  "version": "0.1.38",
+  "version": "0.1.39",
   "private": false,
   "description": "Component Library",
   "main": "dist/index.js",
