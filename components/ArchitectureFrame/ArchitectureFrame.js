@@ -24,7 +24,7 @@ export const ArchitectureFrame = ({ width, logoUrl, data, children }) => {
         </div>
 
         <footer id={css.footer}>
-          <h4>{data.drawingTitle}</h4>
+          <h4>{data.drawingTitle ? data.drawingTitle : '...'}</h4>
         </footer>
 
         <Legend id={css.arch_legend} logoUrl={logoUrl} data={data} />

@@ -1,3 +1,5 @@
+import React from 'react';
+
 import css from './Legend.module.scss';
 
 export const Legend = ({ id, logoUrl, ...props }) => {
