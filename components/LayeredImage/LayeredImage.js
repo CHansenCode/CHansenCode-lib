@@ -1,9 +1,10 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useRef, useCallback } from 'react';
+
+import { useThrottledCallback } from 'lib';
 
 import css from './LayeredImage.module.scss';
 
-export const LayeredImage = ({ distortMax, children }) => {
-  const [throttle, setThrottle] = useState(true);
+export const LayeredImage = ({ distortMax, throttle, children, ...props }) => {
   const [coords, setCoords] = useState({
     clientX: 0,
     clientY: 0,
@@ -15,46 +16,33 @@ export const LayeredImage = ({ distortMax, children }) => {
 
   const boundingBox = useRef(null);
 
-  useEffect(() => {
-    setTimeout(() => {
-      setThrottle(false);
-    }, 50);
-  }, [throttle]);
+  const [throttleHandler] = useThrottledCallback(
+    value => setCoords(value),
+    throttle ? throttle : 200,
+  );
 
-  async function calculateCoords(e) {
+  const handleMouseMove = useCallback(e => {
     const { left, top, width, height } =
       boundingBox.current.getBoundingClientRect();
 
-    const newValues = {
-      clientX: e.clientX - left,
-      clientY: e.clientY - top,
+    const value = {
+      clientX: (e.clientX - left).toFixed(0),
+      clientY: (e.clientY - top).toFixed(0),
       percentageX: (((e.clientX - left) / width) * 100).toFixed(1),
       percentageY: (((e.clientY - top) / height) * 100).toFixed(1),
       distortionFactorX: (((e.clientX - left) / width - 0.5) * 2).toFixed(2),
       distortionFactorY: (((e.clientY - top) / height - 0.5) * 2).toFixed(2),
     };
 
-    !throttle && setCoords({ ...coords, ...newValues });
-    !throttle && setThrottle(true);
-  }
+    throttleHandler(value, 100);
+  }, []);
 
   return (
     <div
       ref={boundingBox}
       className={css.wrapper}
-      onMouseMove={e => calculateCoords(e)}
+      onMouseMove={e => handleMouseMove(e)}
     >
-      {coords && process.env.NODE_ENV !== 'production' && (
-        <>
-          <h6>{coords.clientX}</h6>
-          <h6>{coords.clientY}</h6>
-          <h6>{coords.percentageX}</h6>
-          <h6>{coords.percentageY}</h6>
-          <h6>{coords.distortionFactorX}</h6>
-          <h6>{coords.distortionFactorY}</h6>
-        </>
-      )}
-
       {children &&
         children.length > 1 &&
         children.map((child, i) => (

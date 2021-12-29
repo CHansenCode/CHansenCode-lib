@@ -1,0 +1,105 @@
+.legend {
+  border-left: thin solid;
+
+  display: grid;
+  grid-template:
+    'header' 1fr
+    'logo' 6rem
+    'pInfo' 5rem
+    'footer' 9rem / 1fr;
+
+  header {
+    grid-area: header;
+  }
+  .logo {
+    grid-area: logo;
+    border-bottom: thin solid;
+  }
+  .projectInfo {
+    grid-area: pInfo;
+  }
+  footer {
+    grid-area: footer;
+  }
+}
+
+// ** ASIDE
+.legend header {
+  padding: 3%;
+  border-bottom: thin solid;
+}
+
+.legend .logo {
+  border-bottom: thin solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.legend .projectInfo {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  h6 {
+    position: absolute;
+    top: 0.15rem;
+    left: 0.15rem;
+
+    font-size: 0.5rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+}
+
+.legend footer {
+  border-top: thin solid;
+  display: grid;
+  grid-template:
+    'proAnsv proAnsv proAnsv proAnsv proAnsv proAnsv' 1fr
+    'ansvArk ansvArk ritadAv ritadAv hand hand' 1fr
+    'scale scale scale date date date' 1fr / 1fr 1fr 1fr 1fr 1fr 1fr;
+
+  > :nth-child(1) {
+    border-bottom: thin solid;
+  }
+  > :nth-child(3) {
+    border-left: thin solid;
+  }
+  > :nth-child(4) {
+    border-left: thin solid;
+  }
+  > :nth-child(5) {
+    border-top: thin solid;
+  }
+  > :nth-child(6) {
+    border-top: thin solid;
+    border-left: thin solid;
+  }
+}
+
+.box {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+
+  h6 {
+    position: absolute;
+    top: 0.15rem;
+    left: 0.15rem;
+
+    white-space: nowrap;
+
+    font-size: 0.5rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+  h5 {
+    padding-top: 0.25rem;
+  }
+}

@@ -1,0 +1,67 @@
+.wrapper {
+  position: relative;
+  width: 100%;
+
+  border: thin solid rgba(0, 0, 0, 0);
+  box-shadow: 0 0 3rem -2rem black;
+
+  padding: 0.5rem;
+
+  transition: 0.5s ease;
+}
+
+.container {
+  height: 100%;
+  width: 100%;
+
+  border: thin solid;
+
+  display: grid;
+  grid-template:
+    'view aside' 1fr
+    'footer aside' 4rem / 1fr 12rem;
+
+  > * {
+    height: 100%;
+    width: 100%;
+  }
+  #view {
+    grid-area: view;
+  }
+  #footer {
+    grid-area: footer;
+  }
+  #arch_legend {
+    grid-area: aside;
+  }
+}
+
+.view {
+  position: relative;
+  overflow: hidden;
+  > div {
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+  }
+  img {
+    object-fit: cover;
+  }
+}
+
+#footer {
+  border-top: thin solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  h4 {
+    font-weight: 500;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+  }
+}
+
+@media screen and (max-width: 840px) {
+}

@@ -4,22 +4,20 @@ import { Button } from 'components';
 
 import css from './PropMenu.module.scss';
 
-export const PropMenu = ({ data, children, onExpand }) => {
+export const PropMenu = ({ data, children }) => {
   return (
     <div className={`bg pc3b ${css.propMenu}`}>
-      <Card title={data.title} descr={data.descr} onExpand={onExpand} />
+      <Card title={data.title} descr={data.descr} />
       {children}
     </div>
   );
 };
 
-const Card = ({ title, descr, onExpand }) => {
+const Card = ({ title, descr }) => {
   const [open, setOpen] = useState(true);
   return (
     <div className={`${css.card} pc1bg`}>
       <h4 className="sc">{title}</h4>
-
-      <Button onClick={() => onExpand}>{`>`}</Button>
 
       {descr && (
         <div

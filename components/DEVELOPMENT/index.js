@@ -1,4 +1,3 @@
-export * from './Canvas';
 export * from './Image';
 export * from './Modal';
 export * from './NextLink';
