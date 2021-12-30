@@ -21,6 +21,7 @@ export * from './IconOnHoverInfo';
 export * from './DBimgPicker';
 export * from './Loading';
 export * from './ArchitectureFrame';
+export * from './Row';
 
 // ** view & checked
 export * from './Example';
