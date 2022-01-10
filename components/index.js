@@ -22,6 +22,7 @@ export * from './DBimgPicker';
 export * from './Loading';
 export * from './ArchitectureFrame';
 export * from './Row';
+export * from './Icon';
 
 // ** view & checked
 export * from './Example';
